@@ -1,0 +1,199 @@
+@import url("https://use.typekit.net/vyd5rui.css");
+
+html {
+    font-family: "proxima-nova";
+    font-weight: 500;
+    font-size: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+p,
+li,
+span {
+    font-size: 1.15rem;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    text-align: justify;
+}
+
+.btn-edit i {
+    position: absolute;
+    text-align: center;
+    right: 20px;
+    top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 10px;
+    border: 3px outset #fff;
+    z-index: 9;
+}
+
+#preview {
+    margin: 2px;
+}
+
+.edit-carousel img {
+    height: 140px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#carousel-landing img {
+    height: 100vh;
+    width: 100%;
+    background-color: red;
+    object-fit: cover;
+}
+
+nav {
+    height: 100vh;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .25),
+        0 10px 10px rgba(0, 0, 0, .22) !important;
+}
+
+main {
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+#social-nav {
+    align-items: flex-end;
+}
+
+ul {
+    list-style: none;
+}
+
+.img-side {
+    min-height: 450px;
+    object-fit: cover;
+}
+
+.brand-logo {
+    max-height: 100px;
+    object-fit: cover;
+}
+
+.mini-logo {
+    max-height: 120px;
+    object-fit: cover;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+}
+
+#plx1 {
+    background-image: url(../img/home/plx-1.jpg);
+}
+
+#plx2 {
+    background-image: url(../img/home/plx-2.jpg);
+}
+
+#plx3 {
+    background-image: url(../img/home/plx-3.jpg);
+}
+
+.service-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    display: table;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.service-icons i {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100px;
+}
+
+.service-text {
+    margin: 28px 0;
+}
+
+.container {
+    padding: 30px;
+}
+
+@media screen and (min-width:1600px) {
+    .container {
+        max-width: 1350px;
+    }
+}
+
+@media screen and (max-width:1444px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .brand-logo {
+        max-height: 80px;
+    }
+
+    a,
+    span,
+    li,
+    .btn {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .img-side {
+        margin: 30px 0;
+    }
+
+    .service-icons {
+        margin-bottom: 20px;
+    }
+
+    footer .img-footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width:575px) {
+    nav {
+        height: auto;
+        position: fixed !important;
+        width: 100%;
+        top: 0;
+        padding: 10px 30px !important;
+    }
+
+    .brand-logo {
+        width: auto;
+        max-height: 40px;
+    }
+
+    #social-nav {
+        display: none;
+    }
+}
