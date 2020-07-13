@@ -11,6 +11,19 @@ $("#carousel-landing").slick({
   speed: 2000,
 });
 
+// **** ESTE ES EL CARRUSEL DE LOS PRODUCTOS ****
+$(".carousel-product").slick({
+  dots: true,
+  arrows: true,
+  autoplay: true,
+  draggable: true,
+  fade: true,
+  lazyLoad: 'progressive',
+  infinite: true,
+  autoplaySpeed: 5000,
+  speed: 3000,
+});
+
 // **** ESTO ES EL TOGGLER DEL MENU PARA VERSION MOBILE ****
 $("#menu-toggle").click(function (e) {
   e.preventDefault();
