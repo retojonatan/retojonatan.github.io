@@ -43,15 +43,24 @@
               <li class="nav-item wow animate__fadeInLeft animate__fast">
                 <a class="nav-link pl-0" href="./"><i class="fa fa-home fa-fw"></i> <span class="">HOME</span></a>
               </li>
-              <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-1s">
-                <a class="nav-link pl-0 dropdown-toggle text-nowrap" href="#m1" data-parent="#navbar1"
-                  data-toggle="collapse" data-target="#m1" aria-expanded="false">
+              <li class="nav-item active wow animate__fadeInLeft animate__fast animate__delay-1s">
+                <a class="nav-link pl-0 dropdown-toggle" href="/categories.html">
                   <i class="fa fa-cart-plus fa-fw"></i> <span class="">PRODUCTOS</span>
                 </a>
-                <div class="collapse" id="m1">
-                  <ul class="flex-column nav">
-                    <a class="nav-link px-0 text-truncate" href="#">Sub</a>
-                    <a class="nav-link px-0 text-truncate" href="#">Sub longer</a>
+                <div class="collapse show" id="categories">
+                  <ul class="flex-column nav pl-3">
+                    <li class="blockquote-footer my-1 active">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category A</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category B</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category C</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category D</a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -107,11 +116,31 @@
               <a href="./products-a/product-1.html" class="h-100">
                 <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
               </a>
+              <div class="product-edit">
+                <a href="#" data-toggle="modal" data-target="#editProduct"
+                  class="btn btn-sm btn-block btn-success editar-prod">
+                  <i class="fa fa-pen fa-lg"></i>
+                </a>
+                <a href="#" data-toggle="modal" data-target="#deleteProduct"
+                  class="btn btn-sm btn-block btn-danger eliminar-prod">
+                  <i class="fa fa-trash-alt fa-lg"></i>
+                </a>
+              </div>
             </div>
             <div class="card card-custom mx-2 mb-3 p-4">
               <a href="./products-a/product-2.html" class="h-100">
                 <img src="img/category-A/product-2.jpg" alt="product img" class="card-img h-100">
               </a>
+              <div class="product-edit">
+                <a href="" data-toggle="modal" data-target="#editProduct"
+                  class="btn btn-sm btn-block btn-success editar-prod">
+                  <i class="fa fa-pen fa-lg"></i>
+                </a>
+                <a href="" data-toggle="modal" data-target="#deleteProduct"
+                  class="btn btn-sm btn-block btn-danger eliminar-prod">
+                  <i class="fa fa-trash-alt fa-lg"></i>
+                </a>
+              </div>
             </div>
             <div class="card card-custom mx-2 mb-3 p-4">
               <a href="./products-a/product-1.html" class="h-100">
@@ -139,23 +168,9 @@
               </a>
             </div>
             <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-2.html" class="h-100">
-                <img src="img/category-A/product-2.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-1.html" class="h-100">
-                <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-2.html" class="h-100">
-                <img src="img/category-A/product-2.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-1.html" class="h-100">
-                <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
+              <a href="" data-toggle="modal" data-target="#addProduct"
+                class="h-100 w-100 d-flex justify-content-center">
+                <i class="fa fa-plus fa-10x align-self-center text-secondary"></i>
               </a>
             </div>
           </div>
@@ -188,6 +203,139 @@
           </div>
         </footer>
       </main>
+    </div>
+  </div>
+
+  <!-- Modal Edit Product -->
+  <div class="modal fade" id="editProduct" tabindex="-1" role="dialog" aria-labelledby="deleteProduct"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-success">
+          <h5 class="modal-title">Editar Producto</h5>
+          <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="custom-file mb-1">
+              <input type="file" class="custom-file-input" id="customFile" accept="image/jpeg">
+              <label class="custom-file-label" for="customFile">Selecciona la imagen principal del producto</label>
+            </div>
+            <div class="custom-file mb-1">
+              <input type="file" class="custom-file-input" id="customFile" accept="image/jpeg" multiple>
+              <label class="custom-file-label" for="customFile">Selecciona las imagenes secundarias</label>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label>Especificaciones del producto</label>
+                <input id="specs1" type="text" class="form-control mb-1" placeholder="Especificacion 1">
+                <input id="specs2" type="text" class="form-control mb-1" placeholder="Especificacion 2">
+                <input id="specs3" type="text" class="form-control mb-1" placeholder="Especificacion 3">
+                <input id="specs4" type="text" class="form-control mb-1" placeholder="Especificacion 4">
+                <input id="specs5" type="text" class="form-control mb-1" placeholder="Especificacion 5">
+              </div>
+              <div class="col">
+                <label for="nombreProducto">Nombre del producto</label>
+                <input type="text" id="nombreProducto" class="form-control" placeholder="Nombre del Producto">
+                <div class="form-group">
+                  <label for="productDescription">Descripcion del producto</label>
+                  <textarea class="form-control" id="productDescription" placeholder="Inserte aqui la descripcion..."
+                    rows="5" maxlength="250"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="resumenProducto">Resumen del Producto</label>
+              <textarea class="form-control" id="resumenProducto" placeholder="Inserte aqui el resumen del producto..."
+                rows="5" maxlength="250"></textarea>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">MODIFICAR PRODUCTO</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Add Product -->
+  <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="addProduct" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-success">
+          <h5 class="modal-title">Agregar Nuevo Producto</h5>
+          <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="custom-file mb-1">
+              <input type="file" class="custom-file-input" id="customFile" accept="image/jpeg">
+              <label class="custom-file-label" for="customFile">Selecciona la imagen principal del producto</label>
+            </div>
+            <div class="custom-file mb-1">
+              <input type="file" class="custom-file-input" id="customFile" accept="image/jpeg" multiple>
+              <label class="custom-file-label" for="customFile">Selecciona las imagenes secundarias</label>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label>Especificaciones del producto</label>
+                <input id="specs1" type="text" class="form-control mb-1" placeholder="Especificacion 1">
+                <input id="specs2" type="text" class="form-control mb-1" placeholder="Especificacion 2">
+                <input id="specs3" type="text" class="form-control mb-1" placeholder="Especificacion 3">
+                <input id="specs4" type="text" class="form-control mb-1" placeholder="Especificacion 4">
+                <input id="specs5" type="text" class="form-control mb-1" placeholder="Especificacion 5">
+              </div>
+              <div class="col">
+                <label for="nombreProducto">Nombre del producto</label>
+                <input type="text" id="nombreProducto" class="form-control" placeholder="Nombre del Producto">
+                <div class="form-group">
+                  <label for="productDescription">Descripcion del producto</label>
+                  <textarea class="form-control" id="productDescription" placeholder="Inserte aqui la descripcion..."
+                    rows="5" maxlength="250"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="resumenProducto">Resumen del Producto</label>
+              <textarea class="form-control" id="resumenProducto" placeholder="Inserte aqui el resumen del producto..."
+                rows="5" maxlength="250"></textarea>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">GUARDAR CAMBIOS</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Delete Product -->
+  <div class="modal fade" id="deleteProduct" tabindex="-1" role="dialog" aria-labelledby="deleteProduct"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-success">
+          <h5 class="modal-title">Eliminar Producto?</h5>
+          <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Se eliminara el producto seleccionado.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger">ELIMINAR</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -9,7 +9,7 @@
   <meta name="author" content="SwitchIT.com.ar Argentina">
   <meta name="robots" content="noarchive">
 
-  <title>Switchit Argentina</title>
+  <title>Switchit Argentina - Categories</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,15 +43,25 @@
               <li class="nav-item wow animate__fadeInLeft animate__fast">
                 <a class="nav-link pl-0" href="./"><i class="fa fa-home fa-fw"></i> <span class="">HOME</span></a>
               </li>
-              <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-1s">
-                <a class="nav-link pl-0 dropdown-toggle text-nowrap" href="#m1" data-parent="#navbar1"
-                  data-toggle="collapse" data-target="#m1" aria-expanded="false">
+              <li class="nav-item active wow animate__fadeInLeft animate__fast animate__delay-1s">
+                <a class="nav-link pl-0 dropdown-toggle" href="#categories" data-parent="#categories"
+                  data-toggle="collapse" data-target="#categories" aria-expanded="true">
                   <i class="fa fa-cart-plus fa-fw"></i> <span class="">PRODUCTOS</span>
                 </a>
-                <div class="collapse" id="m1">
-                  <ul class="flex-column nav">
-                    <a class="nav-link px-0 text-truncate" href="#">Sub</a>
-                    <a class="nav-link px-0 text-truncate" href="#">Sub longer</a>
+                <div class="collapse show" id="categories">
+                  <ul class="flex-column nav pl-3">
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category A</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category B</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category C</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./products.html">Category D</a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -101,10 +111,26 @@
       <main class="col bg-white">
         <section class="max-vh-100 w-100 h-100">
           <div class="row w-100 h-100 m-0">
-            <div class="w-50 h-50 bg-info"></div>
-            <div class="w-50 h-50 bg-secondary"></div>
-            <div class="w-50 h-50 bg-success"></div>
-            <div class="w-50 h-50 bg-warning"></div>
+            <a href="./products.html" class="w-50 h-50">
+              <div class="bg-info w-100 h-100 category-custom">
+                <h1 class="text-white text-center pt-3">Category A</h1>
+              </div>
+            </a>
+            <a href="./products.html" class="w-50 h-50">
+              <div class="bg-secondary w-100 h-100 category-custom">
+                <h1 class="text-white text-center pt-3">Category B</h1>
+              </div>
+            </a>
+            <a href="./products.html" class="w-50 h-50">
+              <div class="bg-success w-100 h-100 category-custom">
+                <h1 class="text-white text-center pt-3">Category C</h1>
+              </div>
+            </a>
+            <a href="./products.html" class="w-50 h-50">
+              <div class="bg-warning w-100 h-100 category-custom">
+                <h1 class="text-white text-center pt-3">Category D</h1>
+              </div>
+            </a>
           </div>
         </section>
       </main>

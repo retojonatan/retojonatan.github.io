@@ -45,20 +45,41 @@ $.ajax({
         "");
       $("#preview").append(
         `<div class='edit-carousel col p-0'>
-                            <a href="#" class='seleccionar d-block' name='` + filename + `' onclick='selectImg(this)'>
-                                <img class='img-fluid' src='` + filename + `'>
-                            </a>
-                        </div>`
+            <a href="#" class='seleccionar d-block' name='` + filename + `' onclick='selectImg(this)'>
+                <img class='img-fluid' src='` + filename + `'>
+            </a>
+        </div>`
       );
     });
   }
 });
 
-// **** DETECTA CLICK EN LAS IMG DEL EDITOR CARRUSEL ****
-// **** Y TE DA EL URL DE LA IMG ****
+// **** ESTO PRESENTA LAS IMGS DEL CARRUSEL EN EL BOTON DE BORRAR ****
+var dir = "/img/carousel";
+var fileextension = [".jpeg", ".jpg"];
+$.ajax({
+  url: dir,
+  success: function (data) {
+    $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) +
+      ")").each(function () {
+      var filename = this.href.replace(window.location.host, "").replace("http://",
+        "");
+      $("#deleteCar").append(
+        `<div class='edit-carousel col p-0'>
+            <a href="#" class='seleccionar d-block' name='` + filename + `' onclick='selectImg(this)'>
+              <img class='img-fluid' src='` + filename + `'>
+            </a>
+          </div>`
+      );
+    });
+  }
+});
+
+// **** ESTO DETECTA CLICKS EN LAS IMG DEL EDITOR CARRUSEL ****
+// **** TE DEVUELVE EL URL DE LA IMG ****
 // se genera array de imgs con la clase .seleccionar
 const arrImgs = document.getElementsByClassName('.seleccionar');
-// con esto se itema el array
+// se itera el array
 for (let item of arrImgs) {
   // le agregamos un listener al hacer click con la funcion selectImg
   item.addEventListener('click', selectImg(this));

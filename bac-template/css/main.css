@@ -74,15 +74,25 @@ footer {
     letter-spacing: 4px;
 }
 
-.btn-edit i {
+.carousel-edit {
     position: absolute;
     text-align: center;
     right: 20px;
     top: 20px;
+    z-index: 9;
+}
+
+.carousel-edit i {
+    margin: 10px 0;
     padding: 20px;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, .8);
     border-radius: 10px;
-    border: 3px outset #fff;
+    border: 3px outset #eee;
+}
+
+.product-edit {
+    position: relative;
+    bottom: 60px;
     z-index: 9;
 }
 
@@ -137,6 +147,11 @@ footer {
     background-image: url(../img/home/plx-3.jpg);
 }
 
+#plx-about {
+    background-image: url(../img/about/plx-about.jpg);
+
+}
+
 .service-icons {
     position: absolute;
     top: 0;
@@ -180,6 +195,18 @@ footer {
 .card-custom {
     width: 300px;
     height: 300px;
+    display: inline-block;
+}
+
+.custom-file-input~.custom-file-label::after {
+    content: "Elegir";
+}
+
+.profile-custom {
+    width: 175px;
+    height: 175px;
+    border: 3px solid;
+    box-shadow: 0 5px 10px #999;
 }
 
 @media screen and (min-width:1600px) {
@@ -207,6 +234,10 @@ footer {
 }
 
 @media screen and (max-width:768px) {
+    main {
+        margin-top: 40px;
+    }
+
     .img-side {
         margin: 30px 0;
     }
@@ -221,6 +252,7 @@ footer {
 }
 
 @media screen and (max-width:575px) {
+
     nav {
         height: auto;
         position: fixed !important;

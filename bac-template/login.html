@@ -9,12 +9,13 @@
   <meta name="author" content="SwitchIT.com.ar Argentina">
   <meta name="robots" content="noarchive">
 
-  <title>Switchit Argentina - Contact</title>
+  <title>Switchit Argentina - LOGIN</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- CSS -->
   <link href="css/main.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
   <!-- Slick -->
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
@@ -53,9 +54,14 @@
                   <i class="fa fa-user-ninja fa-fw"></i> <span class="">QUIENES SOMOS</span>
                 </a>
               </li>
-              <li class="nav-item active wow animate__fadeInLeft animate__fast animate__delay-3s">
+              <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-3s">
                 <a class="nav-link pl-0" href="./contact.html">
                   <i class="fa fa-address-book fa-fw"></i> <span class="">CONTACTO</span>
+                </a>
+              </li>
+              <li class="nav-item active wow animate__fadeInLeft animate__fast animate__delay-3s">
+                <a class="nav-link pl-0" href="./contact.html">
+                  <i class="fa fa-users fa-fw"></i> <span class="font-weight-bolder">LOGIN</span>
                 </a>
               </li>
             </ul>
@@ -92,77 +98,32 @@
           </div>
         </nav>
       </aside>
-      <main class="col bg-white">
-        <section class="container my-5 wow animate__fadeInLeft animate__delay-1s">
-          <h5 class="subtitle">Contáctese</h5>
-          <h3 class="title">LE RESPONDEREMOS A LA BREVEDAD</h3>
-          <div class="row">
-            <div class="col">
-              <div class="row my-4 wow animate__fadeInLeft animate__delay-2s animate__slow">
-                <div class="offset-1 col col-sm-3">
-                  <div class="service-icons bg-light">
-                    <i class="fa fa-envelope fa-3x text-success"></i>
-                  </div>
-                </div>
-                <div class="col col-sm-8">
-                  <div class="service-text">
-                    <h5><a href="mailto:info@switchit.com.ar">info@switchit.com.ar</a></h5>
-                  </div>
-                </div>
-              </div>
-              <div class="row my-4 wow animate__fadeInLeft animate__delay-3s animate__slow">
-                <div class="offset-1 col col-sm-3">
-                  <div class="service-icons bg-light">
-                    <i class="fa fa-map fa-3x text-success"></i>
-                  </div>
-                </div>
-                <div class="col col-sm-8">
-                  <div class="service-text">
-                    <h5>Aviador Agneta 1234, Tres de Febrero, Bs As</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="row my-4 wow animate__fadeInLeft animate__delay-4s animate__slow">
-                <div class="offset-1 col col-sm-3">
-                  <div class="service-icons bg-light">
-                    <i class="fa fa-phone fa-3x text-success"></i>
-                  </div>
-                </div>
-                <div class="col col-sm-8">
-                  <div class="service-text">
-                    <h5>Tel: <a href="tel:0303456">11-0303-456♫</a></h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <form action="contactForm()" method="post">
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" placeholder="Nombre" name="Nombre">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" placeholder="Email" name="Email">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" placeholder="Asunto" name="Asunto">
-                </div>
-                <div class="form-group">
-                  <textarea cols="30" rows="7" class="form-control form-control-lg" placeholder="Mensaje"
-                    name="Mensaje"></textarea>
-                </div>
-                <div class="form-group">
-                  <input type="submit" class="btn btn-lg btn-success btn-send-message" value="Enviar Mensaje">
-                </div>
-              </form>
-            </div>
+      <main class="col bg-login w-100 d-flex wow animate__delay-1s animate__fadeIn animate__slow">
+        <form class="form-signin p-5 bg-success wow animate__fadeInDown animate__fast">
+          <div class="text-center mb-4">
+            <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h2 class="mb-3 text-primary"><i class="fa fa-user"></i> LOGIN</h2>
+            <p>
+              Bienvenidos al Login del Sitio
+            </p>
           </div>
-        </section>
-        <section class="border-success" id="map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13136.84959843504!2d-58.60443090711809!3d-34.5987902244691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb9ab4a5771b3%3A0x690cbb88f054e680!2sCdad.%20Jardin%20Lomas%20de%20Palomar%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1594414586940!5m2!1ses-419!2sar"
-            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
-        </section>
+          <div class="form-label-group">
+            <input type="text" id="inputName" class="form-control" placeholder="User name" required="" autofocus="">
+            <label for="inputName">User name</label>
+          </div>
+
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <label for="inputPassword">Password</label>
+          </div>
+
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
       </main>
     </div>
   </div>

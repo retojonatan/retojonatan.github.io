@@ -9,7 +9,7 @@
     <meta name="author" content="SwitchIT.com.ar Argentina">
     <meta name="robots" content="noarchive">
 
-    <title>Switchit Argentina</title>
+    <title>Switchit Argentina - Home</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,20 +41,14 @@
                     <div class="collapse navbar-collapse sidebar w-100 h-100 align-items-start">
                         <ul class="flex-column navbar-nav w-100 wow animate__fadeInLeft animate__fast">
                             <li class="nav-item active wow animate__fadeInLeft animate__fast">
-                                <a class="nav-link pl-0" href="./"><i class="fa fa-home fa-fw"></i> <span
-                                        class="">HOME</span></a>
+                                <a class="nav-link pl-0" href="./"><i class="fa fa-home fa-fw"></i>
+                                    <span class="">HOME</span></a>
                             </li>
                             <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-1s">
-                                <a class="nav-link pl-0 dropdown-toggle text-nowrap" href="#m1" data-parent="#navbar1"
-                                    data-toggle="collapse" data-target="#m1" aria-expanded="false">
-                                    <i class="fa fa-cart-plus fa-fw"></i> <span class="">PRODUCTOS</span>
+                                <a class="nav-link pl-0 dropdown-toggle" href="/categories.html">
+                                    <i class="fa fa-cart-plus fa-fw"></i>
+                                    <span class="">PRODUCTOS</span>
                                 </a>
-                                <div class="collapse" id="m1">
-                                    <ul class="flex-column nav">
-                                        <a class="nav-link px-0 text-truncate" href="#">Sub</a>
-                                        <a class="nav-link px-0 text-truncate" href="#">Sub longer</a>
-                                    </ul>
-                                </div>
                             </li>
                             <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
                                 <a class="nav-link pl-0" href="./about-us.html"><i class="fa fa-user-ninja fa-fw"></i>
@@ -99,11 +93,17 @@
                 </nav>
             </aside>
             <main class="col bg-white">
-                <span class="btn-edit">
-                    <a href="#" data-toggle="modal" data-target="#uploadModal">
-                        <i class="text-primary fa fa-pen fa-2x"></i>
+                <div class="carousel-edit">
+                    <a class="d-block" href="#" data-toggle="modal" data-target="#uploadImg">
+                        <i class="text-primary fa fa-plus-circle fa-2x"></i>
                     </a>
-                </span>
+                    <a class="d-block" href="#" data-toggle="modal" data-target="#sortImg">
+                        <i class="text-primary fa fa-sort-numeric-down fa-2x"></i>
+                    </a>
+                    <a class="d-block" href="#" data-toggle="modal" data-target="#deleteImg">
+                        <i class="text-primary fa fa-trash-alt fa-2x"></i>
+                    </a>
+                </div>
                 <section class="carousel wow animate__fadeIn animate__slow" id="carousel-landing">
                     <div>
                         <img src="./img/carousel/img-1.jpg" alt="Imagen carrusel presentación 1">
@@ -251,7 +251,7 @@
                                 </li>
                                 <li>
                                     <a href="./">Home</a> |
-                                    <a href="./products.html">Productos</a> |
+                                    <a href="./categories.html">Productos</a> |
                                     <a href="./about-us.html">Quienes Somos</a> |
                                     <a href="./contact.html">Contacto</a>
                                 </li>
@@ -269,26 +269,92 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div id="uploadModal" class="modal fade" role="dialog">
+    <!-- Modal Upload Image -->
+    <div id="uploadImg" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-success">
+                    <h5 class="modal-title">Subir imagen al carrusel</h5>
+                    <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form upload -->
+                    <form action="" method="POST">
+                        <div class="custom-file mb-1">
+                            <input type="file" class="custom-file-input" id="customFile" accept="image/jpeg">
+                            <label class="custom-file-label" for="customFile">Selecciona la imagen para subir al
+                                carrusel</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">GUARDAR CAMBIOS</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sort Images -->
+    <div id="sortImg" class="modal fade" role="dialog">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Editar Imágenes del Carrusel</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header bg-primary text-success">
+                    <h4 class="modal-title">Ordenar Imágenes del Carrusel</h4>
+                    <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Form -->
-                    <form method='post' action='' enctype="multipart/form-data">
-                        <label for="file">Subir imágenes:</label>
-                        <input type='file' name='file' id='file' class='form-control form-control-lg'
-                            accept="image/jpg, image/jpeg">
-                        <input type='submit' class='btn btn-info my-3' value='Upload' id='btn_upload'>
-                    </form>
                     <!-- Preview-->
-                    <label for="preview">Haga click en la que desea eliminar</label>
+                    <label for="preview">Arrastre las imagenes para ordenarlas</label>
                     <div class="row p-0" id='preview'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete Image -->
+    <div id="deleteImg" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-success">
+                    <h4 class="modal-title">Eliminar Imágenes del Carrusel</h4>
+                    <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Delete Carousel -->
+                    <label for="deleteCar">Haga click en la que desea eliminar</label>
+                    <div class="row p-0" id='deleteCar'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirm Delete? -->
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="deleteProduct"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-success">
+                    <h5 class="modal-title">Eliminar Imagen?</h5>
+                    <button type="button" class="close text-success" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-times-circle fa-lg"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Se eliminara la imagen seleccionada.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">ELIMINAR</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
