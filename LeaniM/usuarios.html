@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LeaniM | ABM</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./" class="nav-link">Dashboard</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./precios.html" class="nav-link">Precios</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./pagos.html" class="nav-link">Pagos</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./remitos.html" class="nav-link">Remitos</a>
+        </li>
+      </ul>
+
+      <div class="ml-auto">
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Buscar Clientes"
+              aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        </ul>
+      </div>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="./" class="brand-link bg-gradient-dark">
+        <i class="fas fa-piggy-bank text-pink px-2" style="opacity: .8"></i>
+        <span class="brand-text font-weight-light">LeaniM</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link">
+                <i class="fa fa-home nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Clientes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview bg-navy pl-2">
+                <li class="nav-item">
+                  <a href="./clientes.html" class="nav-link">
+                    <i class="fa fa-search nav-icon"></i>
+                    <p>Búsqueda</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="altaClientes.html" class="nav-link">
+                    <i class="far fa-check-circle nav-icon"></i>
+                    <p>Registro</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./panelClientes.html" class="nav-link">
+                    <i class="far fa-user nav-icon"></i>
+                    <p>Panel Cliente</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-truck"></i>
+                <p>
+                  Proveedores
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview bg-navy pl-2">
+                <li class="nav-item">
+                  <a href="./proveedores.html" class="nav-link">
+                    <i class="fa fa-industry nav-icon"></i>
+                    <p>Proveedores</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./proveedoresNP.html" class="nav-link">
+                    <i class="fa fa-users nav-icon"></i>
+                    <p>Proveedores NP</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="./precios.html" class="nav-link">
+                <i class="fas fa-cash-register nav-icon"></i>
+                <p>Precios</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./remitos.html" class="nav-link">
+                <i class="fas fa-columns nav-icon"></i>
+                <p>Remitos</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./pagos.html" class="nav-link">
+                <i class="fas fa-wallet nav-icon"></i>
+                <p>Pagos</p>
+              </a>
+            </li>
+            <li class="nav-header">USUARIOS LEANIM</li>
+            <li class="nav-item">
+              <a href="./usuarios.html" class="nav-link active">
+                <i class="nav-icon fas fa-user-shield"></i>
+                <p>ABM</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Panel de Usuarios</h1>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- row -->
+          <div class="row">
+            <!-- Tabla de Usuarios -->
+            <div class="col-12 col-lg-6">
+              <div class="card">
+                <div class="card-header bg-success">
+                  <h3 class="card-title">Usuarios</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="width: 15px">ID</th>
+                        <th>Nombre de Usuario</th>
+                        <th>Tipo de Usuario</th>
+                        <th>Panel</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.</td>
+                        <td>Admin</td>
+                        <td>Administrador</td>
+                        <td>
+                          <a class="btn btn-sm btn-warning" href="#">Editar
+                            <i class="fa fa-user-edit"></i></a>
+                          <a class="btn btn-sm btn-danger" href="#">Borrar
+                            <i class="fa fa-user-minus"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>MatiEck</td>
+                        <td>Usuario General</td>
+                        <td>
+                          <a class="btn btn-sm btn-warning" href="#">Editar
+                            <i class="fa fa-user-edit"></i></a>
+                          <a class="btn btn-sm btn-danger" href="#">Borrar
+                            <i class="fa fa-user-minus"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td>Contador</td>
+                        <td>Revisor Contable</td>
+                        <td>
+                          <a class="btn btn-sm btn-warning" href="#">Editar
+                            <i class="fa fa-user-edit"></i></a>
+                          <a class="btn btn-sm btn-danger" href="#">Borrar
+                            <i class="fa fa-user-minus"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>4.</td>
+                        <td>LeaniM</td>
+                        <td>Administrador</td>
+                        <td>
+                          <a class="btn btn-sm btn-warning" href="#">Editar
+                            <i class="fa fa-user-edit"></i></a>
+                          <a class="btn btn-sm btn-danger" href="#">Borrar
+                            <i class="fa fa-user-minus"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div><!-- /Tabla de Usuarios -->
+
+            <!-- Registro de Usuarios -->
+            <div class="col-12 col-lg-6">
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Registro</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                  <div class="card-body">
+                    <div class="form-group row">
+                      <label for="user" class="col-sm-2 col-form-label">Usuario</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="user" placeholder="Nombre de Usuario">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="tipo" class="col-sm-2 col-form-label">Tipo de Usuario</label>
+                      <div class="col-sm-10">
+                        <select class="form-control">
+                          <option>Usuario General</option>
+                          <option>Revisor Contable</option>
+                          <option>Administrador</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-info"><i class="fa fa-plus"></i> CREAR USUARIO</button>
+                    <button type="reset" class="btn btn-default float-right">Cancelar</button>
+                  </div>
+                  <!-- /.card-footer -->
+                </form>
+              </div>
+            </div><!-- /Registro Usuarios -->
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+</body>
+
+</html>
