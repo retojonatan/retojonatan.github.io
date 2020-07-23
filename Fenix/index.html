@@ -16,7 +16,9 @@
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top px-5 pt-0" id="nav-fenix">
-    <a class="navbar-brand px-3 py-5 m-0 bg-light sombra mt-n5" href="#">FARMACIA FENIX</a>
+    <a class="navbar-brand px-3 pt-5 pb-2 m-0 bg-light sombra mt-n5" href="#" >
+      <img src="./img/logo-fenix.png" class="img-fluid" alt="">
+    </a>
     <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbar"
       aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,40 +27,40 @@
     <div class="collapse navbar-collapse flex-column ml-lg-0 ml-3 px-3 bg-transparent" id="navbar">
       <ul class="navbar-nav flex-row pl-2 mb-4 mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fab fa-instagram-square text-success fa-2x"></i></a>
+          <a class="nav-link px-1" href="#"><i class="fab fa-instagram-square text-success fa-2x"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fab fa-facebook-square text-success fa-2x"></i></a>
+          <a class="nav-link px-1" href="#"><i class="fab fa-facebook-square text-success fa-2x"></i></a>
         </li>
       </ul>
       <ul class="navbar-nav w-100 nav-fill mt-lg-0 mb-4">
-        <li class="nav-item active">
-          <a class="nav-link active" href="#">PRODUCTOS <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="#productos">PRODUCTOS <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ENVÍOS</a>
+          <a class="nav-link" href="#envios">ENVÍOS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">PROMOCIONES</a>
+          <a class="nav-link" href="#promociones">PROMOCIONES</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">COVID-19</a>
+          <a class="nav-link" href="#covid">COVID-19</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">SUCURSALES</a>
+          <a class="nav-link" href="#sucursales">SUCURSALES</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CONOCENOS</a>
+          <a class="nav-link" href="#conocenos">CONOCENOS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CONTACTO</a>
+          <a class="nav-link" href="#contactanos">CONTACTO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">UBICACIÓN</a>
+          <a class="nav-link" href="#ubicacion">UBICACIÓN</a>
         </li>
       </ul>
     </div>
-    <div class="px-3 pt-5 pb-4 m-0 bg-primary text-center sombra">
+    <div class="px-3 pt-5 pb-4 m-0 mt-n5 bg-primary text-center sombra">
       <a href="#">
         <span class="badge badge-danger ml-2" style="position: relative;">0</span>
         <br>
@@ -140,9 +142,9 @@
         <h3>9-20 hs</h3>
       </div>
     </div>
-    <div class="row">
-      <div class="col-7 px-5 pt-0">
-        <p class="text-light font-weight-light" style="width: 600px;">
+    <div class="row w-100">
+      <div class="col-12 col-lg-7 px-5 pt-0">
+        <p class="text-light font-weight-light" style="max-width: 600px;">
           Ofrecemos un servicio de envío a domicilio a todo el
           barrio de Villa Pueyrredón y Villa Urquiza desde cualquiera
           de nuestras dos sucursales sin costo alguno. El horario de
@@ -163,7 +165,7 @@
           pedidos@socialfenix.com.ar
         </h3>
       </div>
-      <div class="col-5 p-5">
+      <div class="col-12 col-lg-5 p-5">
         <img src="./img/delivery.png" class="img-fluid" alt="" style="width: 400px;">
       </div>
     </div>
@@ -258,18 +260,24 @@
   <!-- /marcas -->
   <!-- covid-19 -->
   <section id="covid">
-    <div class="px-5">
-      <h3 class="btn btn-gris btn-lg">COVID-19</h3>
-      <h1>Tips para cuidarnos</h1>
-      <p class="font-weight-bolder my-4">¡En Nueva Social Fénix nos cuidamos entre todos!</p>
-      <p class="font-weight-light" style="width: 550px;">El COVID-19 produce una enfermedad respiratoria que
-        solo en algunos casos puede complicarse (principalmente
-        en personas mayores). Se transmite por vía respiratoria
-        cuando el contacto es estrecho o por contacto con
-        superficies contaminadas
-      </p>
-      <h2>Cuidados</h2>
+    <div class="row">
+      <div class=" col-6 px-5">
+        <h3 class="btn btn-gris btn-lg">COVID-19</h3>
+        <h1>Tips para cuidarnos</h1>
+        <p class="font-weight-bolder my-4">¡En Nueva Social Fénix nos cuidamos entre todos!</p>
+        <p class="font-weight-light" style="max-width: 550px;">El COVID-19 produce una enfermedad respiratoria que
+          solo en algunos casos puede complicarse (principalmente
+          en personas mayores). Se transmite por vía respiratoria
+          cuando el contacto es estrecho o por contacto con
+          superficies contaminadas
+        </p>
+        <h2>Cuidados</h2>
 
+      </div>
+      <div class="col-6">
+        
+      </div>
+        
     </div>
   </section>
   <!-- /covid-19 -->
@@ -306,8 +314,9 @@
   <!-- /sucursales -->
   <!-- conocenos -->
   <section id="conocenos">
-    <div class="row px-5">
-      <div class="col">
+    <div class="row w-100 px-5">
+      <img src="./img/linea.png" alt="" class="mb-5 mx-auto w-100 px-3">
+      <div class="col-12 col-lg-6">
         <h1 class="text-success">CONOCENOS</h1>
         <div class="px-3" style="border-left: solid 3px #000;">
           <h3 class="text-success"><i class="fas fa-square fa-xs"></i> Quiénes somos</h3>
@@ -332,8 +341,8 @@
           </p>
         </div>
       </div>
-      <div class="col">
-        <h2>FENIX</h2>
+      <div class="col-12 col-lg-6">
+        <img src="./img/fenix.png" class="mb-4" alt="">
         <div class="px-3" style="border-left: solid 3px #000;">
           <h3 class="text-success"><i class="fas fa-square fa-xs"></i> Visión</h3>
           <p class="font-weight-light">
@@ -358,11 +367,11 @@
   <!-- contactanos -->
   <section id="contactanos" class="bg-secondary">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-lg-6">
         <h3 class="text-light mb-4">CONTACTANOS</h3>
         <form action="" method="POST">
           <div class="form-group mb-4">
-            <input type="text" class="form-control sombra col-6" name="nombre" id="nombre"
+            <input type="text" class="form-control sombra col-7" name="nombre" id="nombre"
               placeholder="Nombre y Apellido">
           </div>
           <div class="form-group mb-4">
@@ -378,8 +387,8 @@
           </div>
         </form>
       </div>
-      <div class="col-6">
-        <img src="./img/delivery.png" class="img-fluid" alt="">
+      <div class="col-12 col-lg-6">
+        <img src="./img/cartero.png" class="mt-n5 mr-n5" alt="">
       </div>
     </div>
   </section>
@@ -397,11 +406,11 @@
   <!-- consulta -->
   <section id="consultanos" class="bg-farma pt-5" style="z-index: 1; position: relative;">
     <div class="row">
-      <div class="col text-right">
+      <div class="col-12 col-lg-6 text-right">
         <h4 class="text-white mb-0">SI TENÉS ALGUNA CONSULTA</h4>
         <h4 class="text-white">NO DUDES EN CONTACTARNOS AL</h4>
       </div>
-      <div class="col">
+      <div class="col-12 col-lg-6">
         <h1 class="text-white"><i class="fa fa-phone-alt"></i> 0800-666-1234</h1>
       </div>
     </div>
@@ -409,11 +418,77 @@
   <!-- /consulta -->
   <!-- footer -->
   <footer>
-    <section id="footer" class="bg-secondary" style="position: relative;">
-      <div>
-        <div class="label label-2 bg-light pt-5">
-          <h2 class="font-weight-bolder">FENIX</h2>
+    <section id="footer" class="bg-secondary pb-4" style="position: relative;">
+      <div class="row p-0">
+        <div class="col-4">
+          <div class="label label-2 bg-light p-0">
+            <img src="./img/logo-fenix.png" class="img-fluid p-0" alt="">
+          </div>
         </div>
+        <div class="row col-8 mt-n5 p-0">
+          <div class="col-3">
+            <ul class="p-0">
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#productos"><i class="fa fa-square fa-xs pr-1"></i> PRODUCTOS <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#envios"><i class="fa fa-square fa-xs pr-1"></i> ENVÍOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#promociones"><i class="fa fa-square fa-xs pr-1"></i> PROMOCIONES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#covid"><i class="fa fa-square fa-xs pr-1"></i> COVID-19</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <ul class="p-0">
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#sucursales"><i class="fa fa-square fa-xs pr-1"></i> SUCURSALES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#conocenos"><i class="fa fa-square fa-xs pr-1"></i> CONOCENOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#contactanos"><i class="fa fa-square fa-xs pr-1"></i> CONTACTO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-1 text-light" href="#ubicacion"><i class="fa fa-square fa-xs pr-1"></i> UBICACIÓN</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-5 px-0">
+            <p class="text-light mb-0">
+              SUCURSALES:
+            </p>
+            <p class="text-light font-weight-light mb-0">
+              <span class="font-weight-bold">Mosconi</span> / Gral. José Gervasio Artigas 4702
+              <br>
+              0800-666-1234
+            </p>
+            <p class="text-light font-weight-light mb-0">
+              <span class="font-weight-bold">Griveo</span> / Gral. José Gervasio Artigas 4901
+            <br>
+              0800-666-5678
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="px-5">
+        <a href="#"><i class="fab fa-instagram-square text-light fa-2x"></i></a>
+        <a href="#"><i class="fab fa-facebook-square text-light fa-2x"></i></a>
+        <p class="text-white font-weight-light d-inline-block pl-1" style="font-size: 13px; line-height: normal;">
+          SEGUINOS EN
+          <br>
+          NUESTRAS REDES
+        </p>
+        <p class="text-light font-weight-light">
+          © Copyright 2019. Todos los derechos reservados | Profasan sociedad anonima, Cuit 30708995904. Dirección fiscal Artigas 4901, CABA
+          <a href="#">
+            <img src="./img/data-fiscal.jpg" alt="data fiscal" class="dataf">
+          </a>
+        </p>
       </div>
     </section>
   </footer>
@@ -427,23 +502,8 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
   <script src="./js/slick.min.js"></script>
-  <script type="text/javascript">
-    $('.carru').slick({
-      dots: true,
-      arrows: false,
-      autoplay: true,
-      draggable: true,
-      fade: true,
-      lazyLoad: 'progressive',
-      infinite: true,
-      autoplaySpeed: 6000,
-      speed: 2000,
-    }).slick("slickPause");
-    let initialDelay = 2000;
-    setTimeout(function () {
-      $('.carru').slick("slickPlay");
-    }, initialDelay);
-  </script>
+  <script src="./js/main.js"></script>
+  
 </body>
 
 </html>

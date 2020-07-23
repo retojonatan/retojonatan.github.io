@@ -8,8 +8,12 @@ h5,
 h6,
 p {
   font-family: Helvetica, Arial, sans-serif !important;
-  color: #000;
+  color: #111;
   font-weight: bold;
+}
+
+li{
+  list-style: none;
 }
 
 #nav-fenix {
@@ -58,7 +62,9 @@ p {
   left: 0;
   right: 0;
 }
-
+.row{
+  margin: 0;
+}
 section {
   padding-right: 50px;
   padding-left: 50px;
@@ -135,4 +141,10 @@ section {
 .sucursal:hover {
   filter: opacity(.75) saturate(.75) brightness(80%) contrast(150%);
   -webkit-filter: opacity(.75) saturate(.75) brightness(80%) contrast(150%);
+}
+
+.dataf{
+  width: 60px;
+  margin-top: -60px;
+  margin-left: 10px;
 }
