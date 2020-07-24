@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 html,
 body,
 h1,
@@ -7,13 +9,17 @@ h4,
 h5,
 h6,
 p {
-  font-family: Helvetica, Arial, sans-serif !important;
+  font-family: 'Lato', Helvetica, sans-serif !important;
   color: #111;
   font-weight: bold;
 }
 
-li{
+li {
   list-style: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 #nav-fenix {
@@ -62,9 +68,11 @@ li{
   left: 0;
   right: 0;
 }
-.row{
+
+.row {
   margin: 0;
 }
+
 section {
   padding-right: 50px;
   padding-left: 50px;
@@ -134,6 +142,30 @@ section {
   border-radius: 30px;
 }
 
+.img-tapabocas {
+  height: 300px;
+  width: auto;
+  position: absolute;
+  right: -50px;
+}
+
+.border-covid {
+  border-top: 4px solid #000;
+}
+
+.img-covid {
+  height: 80px;
+  width: auto;
+  margin-bottom: 30px;
+}
+
+.img-covid2 {
+  height: 80px;
+  width: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
 .sucursal {
   display: block;
 }
@@ -143,7 +175,7 @@ section {
   -webkit-filter: opacity(.75) saturate(.75) brightness(80%) contrast(150%);
 }
 
-.dataf{
+.dataf {
   width: 60px;
   margin-top: -60px;
   margin-left: 10px;
