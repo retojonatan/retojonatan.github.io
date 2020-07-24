@@ -42,6 +42,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// SCROLL NAVBAR CHANGE
+$(function () {
+    $(document).scroll(function () {
+      var $nav = $(".sticky-top");
+      $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    });
+  });
+
 // CARRUSEL PRINCIPAL
 $('.carru').slick({
     dots: true,
@@ -60,3 +68,14 @@ setTimeout(function () {
 }, initialDelay);
 
 // CARRUSEL PRODUCTOS
+$('.carru-prod').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    draggable: true,
+    infinite: true,
+    autoplaySpeed: 3000,
+    speed: 2000
+});
