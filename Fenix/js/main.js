@@ -8,7 +8,7 @@ function contactForm() {
 }
 
 function envioFormulario(nombre, email, asunto, mensaje) {
-    var urlCompleta = "https://www.farmaciafenix.com.ar/OperacionFormulario/MensajeContacto";
+    var urlCompleta = "https://www.nuevasocialfenix.com.ar/OperacionFormulario/MensajeContacto";
 
     var request = $.ajax({
         url: urlCompleta,
