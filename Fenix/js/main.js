@@ -45,10 +45,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // SCROLL NAVBAR CHANGE
 $(function () {
     $(document).scroll(function () {
-      var $nav = $(".sticky-top");
-      $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        var $nav = $(".sticky-top");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height() + 450);
     });
-  });
+});
 
 // CARRUSEL PRINCIPAL
 $('.carru').slick({
@@ -71,8 +71,8 @@ setTimeout(function () {
 $('.carru-prod').slick({
     slidesToShow: 4,
     slidesToScroll: 4,
-    dots: true,
-    arrows: false,
+    dots: false,
+    arrows: true,
     autoplay: true,
     draggable: true,
     infinite: true,

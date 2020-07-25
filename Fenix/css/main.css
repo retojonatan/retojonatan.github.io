@@ -41,9 +41,26 @@ a:hover {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.3%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+#nav-fenix .navbar-brand {
+  width: 300px;
+  padding: 20px 30px 30px 30px;
+  border-radius: 0 0 15px 15px;
+}
+
 #nav-fenix.scrolled {
-  background-color: #fff !important;
-  transition: background-color 200ms linear;
+  background: -moz-repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 100%) !important;
+  background: -webkit-repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 100%) !important;
+  background: repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 100%) !important;
+  transition: background-color 400ms linear;
+}
+
+#nav-fenix.scrolled .navbar-brand {
+  width: 200px;
+  padding: 10px 20px 20px 20px;
+}
+
+#nav-fenix.scrolled .nav-rrss {
+  display: none;
 }
 
 #carrusel .carru img {
@@ -70,10 +87,30 @@ a:hover {
   letter-spacing: -2.5px;
 }
 
-.slick-next,
-.slick-prev {
-  left: 0;
-  right: 0;
+/* .slick-next::before,
+.slick-prev::before {} */
+
+#carrusel .slick-dots {
+  bottom: 60px !important;
+}
+
+#carrusel .slick-dots li {
+  margin: 10px !important;
+}
+
+#carrusel .slick-dots li button:before {
+  font-size: 90px !important;
+  opacity: .5 !important;
+}
+
+#carrusel .slick-dots li.slick-active button:before {
+  color: white !important;
+  font-size: 90px !important;
+  opacity: 1 !important;
+}
+
+#productos .carru-prod .slick-slide img {
+  margin: auto;
 }
 
 .row {
@@ -94,6 +131,11 @@ section {
 
 .sombra {
   box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+
+.sombra-2 {
+  -webkit-filter: drop-shadow(0 2px 10px rgba(0, 0, 0, .75));
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, .75));
 }
 
 .bg-farma {
@@ -144,19 +186,25 @@ section {
 }
 
 .card-productos {
-  min-height: 220px;
-  min-width: 200px;
+  max-height: 250px;
+  min-width: 100%;
   border-radius: 30px;
   margin-bottom: 25px;
+  text-align: center;
 }
 
-.btn-oferta{
+.card-productos img {
+  max-height: inherit;
+  object-fit: scale-down;
+}
+
+.btn-oferta {
   position: absolute;
   right: 0;
   bottom: 20px;
 }
 
-.img-marca{
+.img-marca {
   height: 120px;
   width: 100%;
   object-fit: scale-down;
@@ -195,7 +243,7 @@ section {
   -webkit-filter: opacity(.75) saturate(.75) brightness(80%) contrast(150%);
 }
 
-.degradado{
+.degradado {
   background-color: transparent;
   background: -moz-linear-gradient(bottom, rgb(255, 255, 255) 30%, transparent);
   background: -webkit-linear-gradient(bottom, rgb(255, 255, 255) 30%, transparent);
