@@ -26,10 +26,9 @@ a:hover {
 
 #nav-fenix {
   background: rgb(255, 255, 255);
-  background: -moz-linear-gradient(bottom, rgb(255, 255, 255) 80%, transparent);
-  background: -webkit-linear-gradient(bottom, rgb(255, 255, 255) 80%, transparent);
-  background: linear-gradient(to bottom, rgb(255, 255, 255) 80%, transparent);
-  margin-top: -55px;
+  background: -moz-linear-gradient(bottom, rgb(255, 255, 255) 80%, transparent 100%);
+  background: -webkit-linear-gradient(bottom, rgb(255, 255, 255) 80%, transparent 100%);
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 80%, transparent 100%);
 }
 
 #nav-fenix .navbar-toggler {
@@ -50,9 +49,9 @@ a:hover {
 }
 
 #nav-fenix.scrolled {
-  background: -moz-repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 100%) !important;
-  background: -webkit-repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 100%) !important;
-  background: repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 100%) !important;
+  background: -moz-repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 101%) !important;
+  background: -webkit-repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 101%) !important;
+  background: repeating-linear-gradient(#fff, #fff 74.9%, #EEE 75%, transparent 75.1%, transparent 101%) !important;
   transition: background-color 400ms linear;
 }
 
@@ -64,6 +63,10 @@ a:hover {
 
 #nav-fenix.scrolled .nav-rrss {
   display: none;
+}
+
+#carrusel {
+  margin-top: -100px;
 }
 
 #carrusel .carru img {
@@ -269,4 +272,68 @@ section {
   width: 60px;
   margin-top: -60px;
   margin-left: 10px;
+}
+
+@media screen and (max-width:1280px) {
+  html {
+    font-size: 85% !important;
+  }
+
+  #nav-fenix {
+    padding: 0 10px !important;
+  }
+
+  #nav-fenix .navbar-brand {
+    margin-right: 0;
+  }
+
+  #nav-fenix .nav-link {
+    font-size: .85rem;
+    padding-left: .35rem;
+    padding-right: .35rem;
+  }
+
+  .sucursal img {
+    filter: brightness(0.5);
+  }
+
+  #conocenos .offset-1 {
+    margin-left: 0;
+    margin-top: 20px;
+    padding-top: 25px;
+    border-top: 3px solid #000;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 80% !important;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+
+  .p-3 {
+    padding: .5rem !important;
+  }
+
+  #footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #footer .label {
+    border-radius: 0 0 12px 12px;
+    margin: -80px 10px 0px 10px;
+  }
+
+  #footer .col-3 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #footer .nav-link {
+    font-size: .8rem;
+  }
 }
