@@ -236,11 +236,18 @@ section {
 
 .sucursal {
   display: block;
+  filter: drop-shadow(1px 1px 1px green);
+}
+
+.sucursal .card-sucursal {
+  position: absolute;
+  bottom: 25px;
+  left: 40px;
 }
 
 .sucursal:hover {
-  filter: opacity(.75) saturate(.75) brightness(80%) contrast(150%);
-  -webkit-filter: opacity(.75) saturate(.75) brightness(80%) contrast(150%);
+  filter: opacity(.75) saturate(.85) brightness(85%) contrast(130%);
+  -webkit-filter: opacity(.75) saturate(.85) brightness(85%) contrast(130%);
 }
 
 .degradado {
