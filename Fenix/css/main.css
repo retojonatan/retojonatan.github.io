@@ -42,8 +42,10 @@ a:hover {
 }
 
 #nav-fenix .navbar-brand {
+  min-width: 200px;
   width: 300px;
-  padding: 20px 30px 30px 30px;
+  margin-top: -15px;
+  padding: 20px 25px 25px 25px;
   border-radius: 0 0 15px 15px;
 }
 
@@ -55,7 +57,8 @@ a:hover {
 }
 
 #nav-fenix.scrolled .navbar-brand {
-  width: 200px;
+  margin-top: 0;
+  max-width: 200px;
   padding: 10px 20px 20px 20px;
 }
 
