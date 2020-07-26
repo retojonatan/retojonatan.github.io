@@ -314,8 +314,77 @@ section {
     display: none;
   }
 
+  .col {
+    padding: .2rem;
+  }
+
   .p-3 {
     padding: .5rem !important;
+  }
+
+  .p-4 {
+    padding: 1rem !important;
+  }
+
+  .p-5 {
+    padding: 2rem !important;
+  }
+
+  .m-3 {
+    margin: .5rem !important;
+  }
+
+  .m-4 {
+    margin: 1rem !important;
+  }
+
+  .m-5 {
+    margin: 2rem !important;
+  }
+
+  .img-marca {
+    height: 70px;
+  }
+
+  .card-productos {
+    border-radius: 20px;
+  }
+
+  .card-productos img {
+    padding: .75rem !important;
+  }
+
+  #envios .fa-whatsapp {
+    margin-bottom: -8px;
+  }
+
+  #covid .row .px-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .img-tapabocas {
+    height: 200px;
+    right: -20px;
+  }
+
+  .sucursal {
+    padding: 0;
+    margin: 0;
+  }
+
+  .sucursal .card-sucursal {
+    position: absolute;
+    bottom: 10px;
+    left: 18px;
+  }
+
+  .card-sucursal h1 {
+    font-size: 1.7rem;
+  }
+
+  .card-sucursal h3 {
+    font-size: 1rem;
   }
 
   #consultanos .col-12 {
@@ -339,5 +408,86 @@ section {
 
   #footer .nav-link {
     font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 70% !important;
+    overflow-x: hidden !important;
+  }
+
+  section,
+  #footer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #carrusel .card-carrusel {
+    padding: 100px 50px 30px;
+    width: 300px;
+    right: 3%;
+  }
+
+  #productos .slick-arrow {
+    display: none;
+  }
+
+  .btn-envios {
+    height: 50px;
+  }
+
+  #envios {
+    padding-right: 40px;
+  }
+
+  #envios .label {
+    max-width: 40vw;
+    padding: 15px 15px 10px 15px;
+    border-radius: 0 0 25px 25px;
+    margin: -80px 0 10px 30px;
+    object-fit: min-content !important;
+  }
+
+  #promociones .row,
+  #promociones .card {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .img-tapabocas {
+    right: -10px;
+  }
+
+  #contactanos .pl-5 {
+    padding-left: 0 !important;
+  }
+
+  .img-covid,
+  .img-covid2 {
+    height: 50px;
+  }
+
+  #footer .row .col-4 {
+    padding-right: 0;
+  }
+
+  #footer .col-8 .col-3 {
+    display: contents;
+  }
+
+  #footer .col-8 .col-5 {
+    display: block;
+    flex: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #footer .px-5 .d-inline-block {
+    font-size: 10px !important;
+  }
+
+  #footer .px-5 .pr-5 {
+    display: inline-flex;
   }
 }
