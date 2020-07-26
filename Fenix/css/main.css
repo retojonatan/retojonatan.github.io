@@ -235,6 +235,7 @@ section {
 }
 
 .sucursal {
+  padding: 10px;
   display: block;
   filter: drop-shadow(1px 1px 1px green);
 }
