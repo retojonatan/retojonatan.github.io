@@ -423,6 +423,26 @@ section {
     padding-right: 10px;
   }
 
+  #nav-fenix .navbar-brand{
+    min-width: 100px;
+    max-width: 180px;
+    padding: 10px 15px 15px 15px;
+    margin-top: 0;
+  }
+
+  #nav-fenix.scrolled .navbar-brand{
+    width: 130px;
+    padding: 10px;
+  }
+  
+  #nav-fenix.scrolled #nav-etiqueta{
+    padding-top: 45px!important;
+  }
+
+  #nav-etiqueta{
+    padding: 10px!important;
+  }
+
   #carrusel .card-carrusel {
     padding: 100px 50px 30px;
     width: 300px;
@@ -430,23 +450,23 @@ section {
   }
 
   #productos .slick-arrow {
-    display: none;
+    display: none!important;
   }
 
   .btn-envios {
     height: 50px;
   }
 
-  #envios {
-    padding-right: 40px;
-  }
-
   #envios .label {
-    max-width: 40vw;
-    padding: 15px 15px 10px 15px;
+    max-width: min-content;
+    padding: 10px 10px 10px 10px;
     border-radius: 0 0 25px 25px;
     margin: -80px 0 10px 30px;
     object-fit: min-content !important;
+  }
+  #envios .label-sm {
+    margin: -80px 25px 0 0;
+    padding: 10px;
   }
 
   #promociones .row,
@@ -456,6 +476,7 @@ section {
   }
 
   .img-tapabocas {
+    height: 160px;
     right: -10px;
   }
 
