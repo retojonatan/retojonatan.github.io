@@ -43,26 +43,10 @@
               <li class="nav-item wow animate__fadeInLeft animate__fast">
                 <a class="nav-link pl-0" href="./"><i class="fa fa-home fa-fw"></i> <span class="">HOME</span></a>
               </li>
-              <li class="nav-item active wow animate__fadeInLeft animate__fast animate__delay-1s">
+              <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-1s">
                 <a class="nav-link pl-0 dropdown-toggle" href="./categories.html">
                   <i class="fa fa-cart-plus fa-fw"></i> <span class="">PRODUCTOS</span>
                 </a>
-                <div class="collapse show" id="categories">
-                  <ul class="flex-column nav pl-3">
-                    <li class="blockquote-footer my-1 active">
-                      <a class="d-inline nav-link text-truncate" href="./products.html">Category A</a>
-                    </li>
-                    <li class="blockquote-footer my-1">
-                      <a class="d-inline nav-link text-truncate" href="./products.html">Category B</a>
-                    </li>
-                    <li class="blockquote-footer my-1">
-                      <a class="d-inline nav-link text-truncate" href="./products.html">Category C</a>
-                    </li>
-                    <li class="blockquote-footer my-1">
-                      <a class="d-inline nav-link text-truncate" href="./products.html">Category D</a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-2s">
                 <a class="nav-link pl-0" href="./about-us.html"><i class="fa fa-user-ninja fa-fw"></i> <span
@@ -72,12 +56,28 @@
               <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-3s">
                 <a class="nav-link pl-0" href="./contact.html"><i class="fa fa-address-book fa-fw"></i> <span
                     class="">CONTACTO</span></a>
-              </li>
-              <li class="nav-item wow animate__fadeInLeft animate__fast animate__delay-4s">
-                  <a class="nav-link pl-0 dropdown-toggle" href="./sales.html">
-                      <i class="fa fa-gifts fa-fw"></i>
-                      <span class="">OFERTAS</span>
-                  </a>
+              </li>              
+              <li class="nav-item active wow animate__fadeInLeft animate__fast animate__delay-4s">
+                <a  class="nav-link pl-0 dropdown-toggle" href="./sales.html">
+                    <i class="fa fa-gifts fa-fw"></i>
+                    <span class="">OFERTAS</span>
+                </a>
+                <div class="collapse show" id="sales">
+                  <ul class="flex-column nav pl-3">
+                    <li class="blockquote-footer my-1 active">
+                      <a class="d-inline nav-link text-truncate" href="./product-sale.html">Oferta A</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./product-sale.html">Oferta B</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./product-sale.html">Oferta C</a>
+                    </li>
+                    <li class="blockquote-footer my-1">
+                      <a class="d-inline nav-link text-truncate" href="./product-sale.html">Oferta D</a>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>
@@ -114,100 +114,7 @@
         </nav>
       </aside>
       <main class="col bg-white d-flex flex-column min-vh-100">
-        <section class="container my-5 flex-grow-1 wow animate__fadeIn animate__slow">
-          <h5 class="subtitle">Categoría A</h5>
-          <h3 class="title">Productos de categoría A</h3>
-          <div class="row mt-5 justify-content-center">
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-1.html" class="h-100">
-                <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
-              </a>
-              <div class="product-edit">
-                <a href="#" data-toggle="modal" data-target="#editProduct"
-                  class="btn btn-sm btn-block btn-success editar-prod">
-                  <i class="fa fa-pen fa-lg"></i>
-                </a>
-                <a href="#" data-toggle="modal" data-target="#deleteProduct"
-                  class="btn btn-sm btn-block btn-danger eliminar-prod">
-                  <i class="fa fa-trash-alt fa-lg"></i>
-                </a>
-              </div>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-2.html" class="h-100">
-                <img src="img/category-A/product-2.jpg" alt="product img" class="card-img h-100">
-              </a>
-              <div class="product-edit">
-                <a href="" data-toggle="modal" data-target="#editProduct"
-                  class="btn btn-sm btn-block btn-success editar-prod">
-                  <i class="fa fa-pen fa-lg"></i>
-                </a>
-                <a href="" data-toggle="modal" data-target="#deleteProduct"
-                  class="btn btn-sm btn-block btn-danger eliminar-prod">
-                  <i class="fa fa-trash-alt fa-lg"></i>
-                </a>
-              </div>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-1.html" class="h-100">
-                <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-2.html" class="h-100">
-                <img src="img/category-A/product-2.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-1.html" class="h-100">
-                <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-2.html" class="h-100">
-                <img src="img/category-A/product-2.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="./products-a/product-1.html" class="h-100">
-                <img src="img/category-A/product-1.jpg" alt="product img" class="card-img h-100">
-              </a>
-            </div>
-            <div class="card card-custom mx-2 mb-3 p-4">
-              <a href="" data-toggle="modal" data-target="#addProduct"
-                class="h-100 w-100 d-flex justify-content-center">
-                <i class="fa fa-plus fa-10x align-self-center text-secondary"></i>
-              </a>
-            </div>
-          </div>
-        </section>
-        <footer class="bg-primary text-white border-success">
-          <div class="row m-0">
-            <div class="col col-md-8 p-0">
-              <ul class="text-center h-100 m-0 p-4 d-flex flex-column justify-content-center">
-                <li>Texto de información de contacto</li>
-                <li>
-                  <a href="#">Links de contacto</a>
-                </li>
-                <li>Texto de información de contacto -
-                  <a href="#">Links de contacto</a>
-                </li>
-                <li>
-                  <a href="./">Home</a> |
-                  <a href="./products.html">Productos</a> |
-                  <a href="./about-us.html">Quienes Somos</a> |
-                  <a href="./contact.html">Contacto</a>
-                </li>
-                <li class="mt-5">
-                  <a href="https://www.switchit.com.ar/">Switchit Template - 2020</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col p-0 img-footer">
-              <img class="img-fluid" src="img/home/bot.jpg" alt="imagen empresa footer">
-            </div>
-          </div>
-        </footer>
+        <embed src="https://articulo.mercadolibre.com.ar/MLA-864482495-final-fantasy-vii-remake-ff7-ps4-formato-fisico-original-_JM" style="width:100%; height: 100vh;">
       </main>
     </div>
   </div>
@@ -257,16 +164,7 @@
               <textarea class="form-control" id="resumenProducto" placeholder="Inserte aqui el resumen del producto..."
                 rows="5" maxlength="450"></textarea>
             </div>
-            <div class="form-group">
-              <label for="linkProducto">Link del producto</label>
-              <input type="text" id="linkProducto" class="form-control" placeholder="Link del Producto">
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="saleList">
-                <label class="form-check-label" for="saleList">Mostrar en Ofertas</label>
-              </div>
-            </div>
+
           </form>
         </div>
         <div class="modal-footer">
@@ -321,16 +219,7 @@
               <textarea class="form-control" id="resumenProducto" placeholder="Inserte aqui el resumen del producto..."
                 rows="5" maxlength="450"></textarea>
             </div>
-            <div class="form-group">
-              <label for="linkProducto">Link del producto</label>
-              <input type="text" id="linkProducto" class="form-control" placeholder="Link del Producto">
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="saleList">
-                <label class="form-check-label" for="saleList">Mostrar en Ofertas</label>
-              </div>
-            </div>
+
           </form>
         </div>
         <div class="modal-footer">
