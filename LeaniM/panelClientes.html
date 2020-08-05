@@ -317,7 +317,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-12">
               <div class="small-box">
-                <a href="#" class="d-block p-2 bg-danger">
+                <a href="#" class="d-block p-2 bg-danger" data-toggle="modal" data-target="#modalRemito">
                   <div class="inner">
                     <h3>Remitos</h3>
                     <p>Genere remitos de compra</p>
@@ -359,7 +359,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-12">
               <div class="small-box">
-                <a href="#" class="d-block p-2 bg-warning">
+                <a href="#" class="d-block p-2 bg-warning" data-toggle="modal" data-target="#modalDatos">
                   <div class="inner">
                     <h3>Datos</h3>
                     <p>Modifique datos del cliente</p>
@@ -380,7 +380,7 @@
   <div class="modal fade" id="modalPagos" tabindex="-1" role="dialog" aria-labelledby="modalPagos" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
       <div class="modal-content">
-        <div class="modal-header bg-success">
+        <div class="modal-header bg-info">
           <h5 class="modal-title" id="modalPagos">Registrar Pago</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -421,7 +421,7 @@
                   <option>Remito 8</option>
                 </select> 
                 <!-- ESTE SPAN TIENE QUE TRAER EL MONTO DEL REMITO, ESTAR ESCONDIDO MIENTRAS NO ELIJAN REMITO -->
-                <span class="float-right">Monto Adeudado: <span id="monto">45000</span> $</span>
+                <p class="text-right">Monto Adeudado: <span id="monto">45000</span> $</p>
               </div>
               <div class="form-group">
                 <label for="concepto">Observaciones</label>
@@ -431,12 +431,103 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">INGRESAR PAGO</button>
+          <button type="submit" class="btn btn-info">INGRESAR PAGO</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
     </div>
-  </div>
+  </div> <!-- ./ Modal Pagos -->
+
+  <!-- Modal Remito -->
+  <div class="modal fade" id="modalRemito" tabindex="-1" role="dialog" aria-labelledby="modalRemito" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h5 class="modal-title" id="modalRemito">Generar Remito</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- form start -->
+          <form role="form">
+            <div class="card-body">
+              <h5 class="text-right font-weight-bold">Remito N°: <span id="numRemito">XXXX</span></h5>
+              <div class="form-group">
+                <label for="producto">Producto</label>
+                <select type="text" class="form-control" id="producto">
+                  <option value="15000">Producto A</option>
+                  <option value="10000">Producto B</option>
+                  <option value="5000">Producto C</option>
+                  <option value="1000">Producto D</option>
+                </select> 
+                <!-- ESTE SPAN TIENE QUE TRAER EL MONTO DEL PRECIO UNITARIO, DEBE ESTAR ESCONDIDO MIENTRAS NO ELIJAN -->
+                <p class="text-right">Precio Unitario: <span id="precioUnitario"></span> $</p>
+              </div>
+              <div class="form-group">
+                <label for="cantidadProducto">Cantidad</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="cantidadProducto" placeholder="cantidadProducto" min="1" value="1">
+                </div>
+              </div>
+              <!-- ESTE SPAN TIENE QUE ACOMODARSE SEGUN LA MULTIPLICACION, DEBE ESTAR EN 0 MIENTRAS NO ELIJAN -->
+              <p class="text-right">Monto Total: <span class="font-weight-bold" id="totalRemito">0</span> $</p>
+              <div class="form-group">
+                <label for="concepto">Observaciones</label>
+                <input type="text" class="form-control" id="concepto" placeholder="Detalles del remito">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger">GENERAR REMITO</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- ./ Modal Remito -->
+
+  <!-- Modal Datos -->
+  <div class="modal fade" id="modalDatos" tabindex="-1" role="dialog" aria-labelledby="modalDatos" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="modalDatos">Modificar Datos Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- form start -->
+          <form class="form-horizontal">
+            <div class="card-body">
+              <div class="form-group row">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido">
+              </div>
+              <div class="form-group row">
+                <label for="alias">Alias</label>
+                <input type="text" class="form-control" id="alias" placeholder="Alias, apodo, rasgos, etc">
+              </div>
+              <div class="form-group row">
+                <label for="tel">Telefono</label>
+                <input type="tel" class="form-control" id="tel" placeholder="Telefono">
+              </div>
+              <div class="form-group row">
+                <label for="dir">Dirección</label>
+                <input type="text" class="form-control" id="dir" placeholder="Dirección">
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-warning">MODIFICAR</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- ./ Modal Datos -->
 
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
@@ -472,7 +563,9 @@
   <script src="dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+    <!-- Custom Scripts -->
   <script>
+    // cambio color cta cte
     let money = document.getElementById('ctacte').innerHTML;
     console.log();
     if( money > 0 ){
@@ -480,6 +573,31 @@
     } else{
       document.getElementById('cta-bg').className = 'info-box bg-danger';
     }
+
+    // calculo total para el remito
+    let totalRemito = 0
+    let seleccionProducto = document.getElementById('producto');    
+    let seleccionCantidad = document.getElementById('cantidadProducto');
+
+    // mostrar datos (hardcodeado)
+    seleccionProducto.addEventListener('change', ( event ) => { 
+      let precioUnitario = document.getElementById('precioUnitario');
+      precioUnitario.innerHTML = event.target.value;
+      cambiarTotal();
+      });
+    
+    // mostrar datos de cantidad (hardcodeado)
+    seleccionCantidad.addEventListener('change', ( event ) => {
+      console.log(event.target.value);
+      cambiarTotal();
+    });
+
+    function cambiarTotal(){
+      let montoTotal = document.getElementById('totalRemito');
+      totalRemito = seleccionProducto.value * cantidadProducto.value;
+      montoTotal.innerHTML = totalRemito;
+    }
+    
   </script>
 </body>
 
