@@ -238,15 +238,19 @@ footer {
         margin-top: 40px;
     }
 
+    .title{
+        margin-bottom: 20px;
+    }
+
     .img-side {
         margin: 30px 0;
     }
 
-    #categories{
+    #main-categories{
         margin-top: 8vh!important;
     }
 
-    #categories section .w-50{
+    #main-categories section .w-50{
         width: 100%!important;
     }
 
