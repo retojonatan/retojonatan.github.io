@@ -242,8 +242,29 @@ footer {
         margin: 30px 0;
     }
 
+    #categories{
+        margin-top: 8vh!important;
+    }
+
+    #categories section .w-50{
+        width: 100%!important;
+    }
+
+    .category-custom{
+        height: 21.5vh!important;
+    }
+
     .service-icons {
         margin-bottom: 20px;
+    }
+
+    .service-text{
+        margin: 10px 0;
+        height: 85px;
+    }
+
+    .service-text h3{
+        font-size: 1.5rem;
     }
 
     footer .img-footer {
