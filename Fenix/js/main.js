@@ -92,6 +92,14 @@ $('.carru-prod').slick({
                 slidesToScroll: 2,
                 arrows: true,
             }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+            }
         }
     ]
 });

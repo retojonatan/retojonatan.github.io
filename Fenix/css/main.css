@@ -115,10 +115,11 @@ a:hover {
   opacity: 1 !important;
 }
 
-#productos .carru-prod{
+#productos .carru-prod {
   margin-left: -50px;
   margin-right: -50px;
 }
+
 #productos .carru-prod .slick-slide img {
   margin: auto;
 }
@@ -166,7 +167,7 @@ section {
 .btn-envios {
   margin-top: 10px;
   height: 68px;
-  font-size: 1.75rem!important;
+  font-size: 1.75rem !important;
 }
 
 .btn-envios .fa-whatsapp {
@@ -175,7 +176,8 @@ section {
   font-size: 50px !important;
   vertical-align: middle;
 }
-.img-delivery{
+
+.img-delivery {
   width: 550px;
 }
 
@@ -260,14 +262,15 @@ section {
   bottom: 25px;
   left: 40px;
 }
-.sucursal .horarios{
+
+.sucursal .horarios {
   opacity: 0;
   height: 0;
   transform: scaleY(0);
 }
 
-.sucursal:hover .horarios{
-  display: inline-block!important;
+.sucursal:hover .horarios {
+  display: inline-block !important;
   opacity: 1;
   overflow: hidden;
   transition: transform 0.25s ease-out;
@@ -281,7 +284,7 @@ section {
   -webkit-filter: opacity(.85) saturate(.85) brightness(85%) contrast(130%);
 }
 
-.cartero{
+.cartero {
   position: absolute;
   bottom: 0;
   right: 25%;
@@ -386,6 +389,11 @@ section {
     padding: .75rem !important;
   }
 
+  #productos .carru-prod {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   #envios .fa-whatsapp {
     margin-bottom: -8px;
     margin-left: 0;
@@ -457,24 +465,24 @@ section {
     padding-right: 10px;
   }
 
-  #nav-fenix .navbar-brand{
+  #nav-fenix .navbar-brand {
     min-width: 100px;
     max-width: 165px;
     padding: 10px 15px 15px 15px;
     margin-top: 0;
   }
 
-  #nav-fenix.scrolled .navbar-brand{
+  #nav-fenix.scrolled .navbar-brand {
     width: 130px;
     padding: 10px;
   }
-  
-  #nav-fenix.scrolled #nav-etiqueta{
-    padding-top: 45px!important;
+
+  #nav-fenix.scrolled #nav-etiqueta {
+    padding-top: 45px !important;
   }
 
-  #nav-etiqueta{
-    padding: 10px!important;
+  #nav-etiqueta {
+    padding: 10px !important;
   }
 
   #carrusel .card-carrusel {
@@ -484,12 +492,12 @@ section {
   }
 
   #productos .slick-arrow {
-    display: none!important;
+    display: none !important;
   }
 
   .btn-envios {
     height: 50px;
-    font-size: 1.25rem!important;
+    font-size: 1.25rem !important;
   }
 
   #envios .label {
@@ -499,6 +507,7 @@ section {
     margin: -80px 0 10px 30px;
     object-fit: min-content !important;
   }
+
   #envios .label-sm {
     margin: -80px 25px 0 0;
     padding: 10px;
@@ -510,7 +519,7 @@ section {
     padding: 0 !important;
   }
 
-  .cartero{
+  .cartero {
     display: none;
   }
 
@@ -520,8 +529,9 @@ section {
   }
 
   #tel-covid h1 {
-    line-height: 30px!important;
+    line-height: 30px !important;
   }
+
   #contactanos .pl-5 {
     padding-left: 0 !important;
   }
