@@ -184,7 +184,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Materiales Proveedores No Productivos</h1>
+              <h1 class="m-0 text-dark">Compras a Proveedores</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -196,6 +196,128 @@
         <div class="container-fluid">
           <!-- row -->
           <div class="row">
+            <div class="col-12">
+              <!-- general form elements -->
+              <div class="card card-warning">
+                <div class="card-header">
+                  <h3 class="card-title">Compras</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
+                      data-source="clientes.html" data-source-selector="#card-refresh-content"
+                      data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                        class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <form role="form">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Proveedor</label>
+                          <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..." required>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Razón Social</label>
+                          <input type="text" class="form-control" value="Razón Social" readonly>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <!-- select -->
+                        <div class="form-group">
+                          <label>*Rubro</label>
+                          <select class="form-control">
+                            <option>Rubro por defecto</option>
+                            <option>Rubro 2</option>
+                            <option>Rubro 3</option>
+                            <option>Rubro 4</option>
+                            <option>Rubro 5</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="listaProductos">
+                      <div class="row" id="columnaProducto1">
+                        <div class="col-sm-3">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Producto</label>
+                            <input type="text" class="form-control" placeholder="Ingrese nombre del producto ..." required>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Marca</label>
+                            <input type="text" class="form-control" placeholder="Ingrese la marca">
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Precio</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                              </div>
+                              <input type="number" class="form-control" id="precio" placeholder="Ingrese el monto" min="0" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Cantidad</label>
+                            <input type="number" class="form-control" min="1" value="1" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Total</label>
+                            <input type="number" class="form-control" placeholder="Precio Total" value="" min="0" readonly>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>IVA %</label>
+                            <div class="input-group">
+                              <input type="number" class="form-control" placeholder="21" value="" readonly>
+                              <div class="input-group-append">
+                                <span class="input-group-text">%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Total Bruto</label>
+                            <input type="number" class="form-control" placeholder="Monto Total Bruto" value="" min="0" readonly>
+                          </div>
+                        </div>
+                      </div>           
+                    </div>         
+                    <div>
+                      <button type="button" onclick="addProduct()" class="btn btn-success">Agregar otro producto</button>
+                      <button type="button" onclick="deleteProduct()" class="btn mx-3 btn-danger" id="borrarProducto" style="display: none;">Eliminar producto</button>
+                    </div>
+                    <div class="float-right">
+                      <button type="submit" class="btn font-weight-bold btn-warning mx-3">INGRESAR COMPRA</button>
+                      <button type="reset" class="btn btn-default">Cancelar</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
@@ -403,6 +525,31 @@
   <script src="dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
+  <script>
+    var listaProductos = document.getElementById('listaProductos');
+    var count = 1;
+    function addProduct(){
+      var clon = listaProductos.lastElementChild.cloneNode(true);
+      clon.id = "columnaProducto" + count;
+      // clon.getElementsByTagName('input').forEach(e => {
+        // var i = 0;
+        // console.log(e)
+        // .id = "elemento-" + i + "-producto-" + count;
+      // });
+      clon.getElementsByTagName('input')[0].id = "select-item-value" + count;
+      listaProductos.appendChild(clon);
+      count++;
+      document.getElementById('borrarProducto').style.display = "inline-block";
+    }
+    function deleteProduct(){
+      if (listaProductos.lastChild != listaProductos.firstElementChild) {
+        listaProductos.lastChild.remove();
+        if (listaProductos.lastChild == listaProductos.firstElementChild) {
+          document.getElementById('borrarProducto').style.display = "none";
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
