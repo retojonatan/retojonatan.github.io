@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LeaniM | Proveedores NP</title>
+  <title>LeaniM | Compras</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -138,9 +138,9 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./proveedoresNP.html" class="nav-link active">
+                  <a href="./Compras.html" class="nav-link active">
                     <i class="fa fa-users nav-icon"></i>
-                    <p>Proveedores NP</p>
+                    <p>Compras</p>
                   </a>
                 </li>
               </ul>
@@ -211,27 +211,27 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" id="formCompras">
                     <div class="row">
                       <div class="col-sm-3">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Proveedor</label>
-                          <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..." required>
+                          <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..." id="proveedor" required>
                         </div>
                       </div>
                       <div class="col-sm-3">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Razón Social</label>
-                          <input type="text" class="form-control" value="Razón Social" readonly>
+                          <input type="text" class="form-control" value="Razón Social" id="razonSocial" readonly>
                         </div>
                       </div>
                       <div class="col-sm-3">
                         <!-- select -->
                         <div class="form-group">
                           <label>*Rubro</label>
-                          <select class="form-control">
+                          <select class="form-control" id="rubro">
                             <option>Rubro por defecto</option>
                             <option>Rubro 2</option>
                             <option>Rubro 3</option>
@@ -244,31 +244,31 @@
                         <!-- text input -->
                         <div class="form-group">
                           <label>N° Factura</label>
-                          <input type="text" class="form-control" value="0">
+                          <input type="text" class="form-control" value="0" id="numFc">
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Fecha Facturación</label>
-                          <input type="date" name="" value="" id="">
+                          <input type="date" class="form-control datetimepicker-input" data-target="#timepicker" name="" value="" id="fechaFc">
                         </div>
                       </div>
                     </div>
                     <div id="listaProductos">
-                      <div class="row" id="columnaProducto1">
+                      <div class="row" id="columnaProducto">
                         <div class="col-sm-3">
                           <!-- text input -->
                           <div class="form-group">
                             <label>Producto</label>
-                            <input type="text" class="form-control" placeholder="Ingrese nombre del producto ..." required>
+                            <input type="text" class="form-control" placeholder="Ingrese nombre del producto ..." id="producto" required>
                           </div>
                         </div>
                         <div class="col-sm-2">
                           <!-- text input -->
                           <div class="form-group">
                             <label>Marca</label>
-                            <input type="text" class="form-control" placeholder="Ingrese la marca">
+                            <input type="text" class="form-control" placeholder="Ingrese la marca" id="marca">
                           </div>
                         </div>
                         <div class="col-sm-2">
@@ -279,7 +279,7 @@
                               <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                               </div>
-                              <input type="number" class="form-control" id="precio" placeholder="Ingrese el monto" min="0" required>
+                              <input type="number" class="form-control" placeholder="Ingrese el monto" min="0" id="precio" required>
                             </div>
                           </div>
                         </div>
@@ -287,14 +287,14 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Cantidad</label>
-                            <input type="number" class="form-control" min="1" value="1" required>
+                            <input type="number" class="form-control" min="1" value="1" id="cantidad" required>
                           </div>
                         </div>
                         <div class="col-sm-1">
                           <!-- text input -->
                           <div class="form-group">
-                            <label>Total</label>
-                            <input type="number" class="form-control" placeholder="Precio Total" value="" min="0" readonly>
+                            <label>Subtotal</label>
+                            <input type="number" class="form-control" placeholder="Precio subtotal" value="" min="0" id="subtotal" readonly>
                           </div>
                         </div>
                         <div class="col-sm-1">
@@ -302,7 +302,7 @@
                           <div class="form-group">
                             <label>IVA %</label>
                             <div class="input-group">
-                              <input type="number" class="form-control" placeholder="21" value="" readonly>
+                              <input type="number" class="form-control" placeholder="21" value="" id="iva" readonly>
                               <div class="input-group-append">
                                 <span class="input-group-text">%</span>
                               </div>
@@ -312,8 +312,8 @@
                         <div class="col-sm-2">
                           <!-- text input -->
                           <div class="form-group">
-                            <label>Total Bruto</label>
-                            <input type="number" class="form-control" placeholder="Monto Total Bruto" value="" min="0" readonly>
+                            <label>Monto Total</label>
+                            <input type="number" class="form-control" placeholder="Monto Total" value="" min="0" id="total" readonly>
                           </div>
                         </div>
                       </div>           
@@ -543,14 +543,11 @@
     var listaProductos = document.getElementById('listaProductos');
     var count = 1;
     function addProduct(){
-      var clon = listaProductos.lastElementChild.cloneNode(true);
+      var clon = listaProductos.firstElementChild.cloneNode(true);
       clon.id = "columnaProducto" + count;
-      // clon.getElementsByTagName('input').forEach(e => {
-        // var i = 0;
-        // console.log(e)
-        // .id = "elemento-" + i + "-producto-" + count;
-      // });
-      clon.getElementsByTagName('input')[0].id = "select-item-value" + count;
+      for(var i = 0; i < clon.getElementsByTagName('input').length; i++){
+        clon.getElementsByTagName('input')[i].id = listaProductos.getElementsByTagName('input')[i].id + count;
+      }
       listaProductos.appendChild(clon);
       count++;
       document.getElementById('borrarProducto').style.display = "inline-block";
@@ -558,9 +555,13 @@
     function deleteProduct(){
       if (listaProductos.lastChild != listaProductos.firstElementChild) {
         listaProductos.lastChild.remove();
-        if (listaProductos.lastChild == listaProductos.firstElementChild) {
-          document.getElementById('borrarProducto').style.display = "none";
-        }
+        count--;        
+        hideDelete(listaProductos);
+      }
+    }
+    function hideDelete(e){
+      if(count == 1) {
+        document.getElementById('borrarProducto').style.display = "none";
       }
     }
   </script>
