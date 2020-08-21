@@ -28,7 +28,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- FAVICON -->
-  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZGRkAKas+wDb7P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIiIAACIiIiIiIiIAIiMzMzMyIgIiMzMzMzMiIiIzMzMzMyIiIjMiMyIzIiIiMyIzIjMiIiIzIjMiMyIiIjMzMzMzIiIiMzMzMzMiIiIjMzMzMiIiIiIRIhEiIiIiIhEiESIiICIiESIRIiIAIiIiIiIiIgAAIiIiIiIADgBwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIABAADgBwAA" rel="icon" type="image/x-icon" />
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZGRkAKas+wDb7P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIiIAACIiIiIiIiIAIiMzMzMyIgIiMzMzMzMiIiIzMzMzMyIiIjMiMyIzIiIiMyIzIjMiIiIzIjMiMyIiIjMzMzMzIiIiMzMzMzMiIiIjMzMzMiIiIiIRIhEiIiIiIhEiESIiICIiESIRIiIAIiIiIiIiIgAAIiIiIiIADgBwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIABAADgBwAA"
+    rel="icon" type="image/x-icon" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -44,7 +46,7 @@
           <a href="./" class="nav-link">Dashboard</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./precios.html" class="nav-link">Productos</a>
+          <a href="./productos.html" class="nav-link">Productos</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="./pagos.html" class="nav-link">Pagos</a>
@@ -122,33 +124,22 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item has-treeview menu-open">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-truck"></i>
-                <p>
-                  Proveedores
-                  <i class="fas fa-angle-left right"></i>
-                </p>
+            <li class="nav-item">
+              <a href="./proveedores.html" class="nav-link active">
+                <i class="fa fa-industry nav-icon"></i>
+                <p>Proveedores</p>
               </a>
-              <ul class="nav nav-treeview bg-navy pl-2">
-                <li class="nav-item">
-                  <a href="./proveedores.html" class="nav-link active">
-                    <i class="fa fa-industry nav-icon"></i>
-                    <p>Proveedores</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./compras.html" class="nav-link">
-                    <i class="fa fa-users nav-icon"></i>
-                    <p>Compras</p>
-                  </a>
-                </li>
-              </ul>
             </li>
             <li class="nav-item">
-              <a href="./precios.html" class="nav-link">
+              <a href="./productos.html" class="nav-link">
                 <i class="fas fa-cash-register nav-icon"></i>
                 <p>Productos</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./compras.html" class="nav-link">
+                <i class="fa fa-shopping-cart nav-icon"></i>
+                <p>Compras</p>
               </a>
             </li>
             <li class="nav-item">
@@ -194,6 +185,145 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
+          <div class="col-12">
+            <!-- general form elements -->
+            <div class="card card-success">
+              <!-- <div class="card card-success collapsed-card"> -->
+              <div class="card-header">
+                <h3 class="card-title">Crear Proveedor</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="clientes.html"
+                    data-source-selector="#card-refresh-content" data-load-on-init="false"><i
+                      class="fas fa-sync-alt"></i></button>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                      class="fas fa-plus"></i></button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form" id="formCompras">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Nombre del Proveedor</label>
+                        <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..."
+                          id="proveedor" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Razón Social</label>
+                        <input type="text" class="form-control" placeholder="Ingrese el nombre de la razón social ..."
+                          id="razonSocial" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>*Rubro</label>
+                        <select class="form-control" id="rubro" required>
+                          <option>Rubro por defecto</option>
+                          <option>Rubro 2</option>
+                          <option>Rubro 3</option>
+                          <option>Rubro 4</option>
+                          <option>Rubro 5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>N° CUIT (sin guiones)</label>
+                        <input type="tel" class="form-control" placeholder="N° CUIT" id="cuit" minlength="11"
+                          maxlength="11" required>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <!-- select -->
+                      <div class="form-group">
+                        <label>*Condicion Fiscal</label>
+                        <select class="form-control" id="CondicionFiscal" required>
+                          <option>Condicion Fiscal por defecto</option>
+                          <option>Condicion Fiscal 2</option>
+                          <option>Condicion Fiscal 3</option>
+                          <option>Condicion Fiscal 4</option>
+                          <option>Condicion Fiscal 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="listaProductos">
+                    <div class="row" id="columnaProducto">
+                      <div class="col-sm-3">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Dirección</label>
+                          <input type="text" class="form-control" placeholder="Ingrese la dirección del proveedor"
+                            id="producto" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- tel input -->
+                        <div class="form-group">
+                          <label>Teléfono</label>
+                          <input type="tel" class="form-control" placeholder="N° de teléfono" id="tel">
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Contacto</label>
+                          <input type="text" class="form-control" placeholder="Ingrese el contacto" id="contacto"
+                            required>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Calidad</label>
+                          <select class="form-control" id="calidad" required>
+                            <option>Calidad por defecto</option>
+                            <option>Calidad 2</option>
+                            <option>Calidad 3</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-1">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>IVA %</label>
+                          <div class="input-group">
+                            <input type="number" class="form-control" placeholder="21" value="" id="iva" readonly>
+                            <div class="input-group-append">
+                              <span class="input-group-text">%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Monto Total</label>
+                          <input type="number" class="form-control" placeholder="Monto Total" value="" min="0"
+                            id="total" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="float-right">
+                      <button type="submit" class="btn font-weight-bold btn-success mx-3">INGRESAR PROVEEDOR</button>
+                      <button type="reset" class="btn btn-default">Cancelar</button>
+                    </div>
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
           <!-- row -->
           <div class="row">
             <div class="col-lg-3 col-md-6 col-12">
