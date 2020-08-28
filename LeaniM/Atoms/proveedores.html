@@ -198,7 +198,7 @@
                       data-source="clientes.html" data-source-selector="#card-refresh-content"
                       data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                        class="fas fa-plus"></i></button>
+                        class="fas fa-minus"></i></button>
                   </div>
                 </div>
                 <!-- /.card-header -->
@@ -239,7 +239,7 @@
                         <div class="form-group">
                           <label>N° CUIT (sin guiones)</label>
                           <input type="tel" class="form-control" placeholder="N° CUIT" id="cuit" minlength="11"
-                            maxlength="11" pattern="\d*" required>
+                            min="9999999999" maxlength="11" pattern="\d*" required>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -258,7 +258,7 @@
                     </div>
                     <div id="listaProductos">
                       <div class="row" id="columnaProducto">
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <!-- text input -->
                           <div class="form-group">
                             <label>Dirección</label>
@@ -269,30 +269,19 @@
                         <div class="col-sm-2">
                           <!-- tel input -->
                           <div class="form-group">
-                            <label>Teléfono</label>
-                            <input type="tel" class="form-control" placeholder="N° de teléfono" id="tel" pattern="\d*">
+                            <label>Teléfono <small>(Ingresar solo números)</small> </label>
+                            <input type="tel" class="form-control" placeholder="N° de teléfono" id="tel" minlength="8"
+                              maxlength="14" pattern="\d*" required>
                           </div>
                         </div>
                         <div class="col-sm-3">
                           <!-- text input -->
                           <div class="form-group">
                             <label>Contacto</label>
-                            <input type="text" class="form-control" placeholder="Ingrese el contacto" id="contacto"
-                              required>
+                            <input type="text" class="form-control" placeholder="Ingrese el contacto" id="contacto">
                           </div>
                         </div>
-                        <div class="col-sm-2">
-                          <!-- text input -->
-                          <div class="form-group">
-                            <label>Calidad</label>
-                            <select class="form-control" id="calidad" required>
-                              <option value="calidad 1">Calidad por defecto</option>
-                              <option value="calidad 2">Calidad 2</option>
-                              <option value="calidad 3">Calidad 3</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                           <!-- text input -->
                           <div class="form-group">
                             <label>IIBB</label>
@@ -307,7 +296,7 @@
                     </div>
                     <hr>
                     <div class="float-right">
-                      <button type="submit" class="btn font-weight-bold btn-success mr-3" id="submitBtn">INGRESAR
+                      <button type="submit" class="btn font-weight-bold btn-success mr-3">INGRESAR
                         PROVEEDOR</button>
                       <button type="reset" class="btn btn-default">Cancelar</button>
                     </div>
@@ -323,15 +312,9 @@
           <!-- row -->
           <div class="row">
             <div class="col-12">
-              <div class="card">
+              <div class="card card-success">
                 <div class="card-header">
-                  <div class="input-group float-left" style="width: 275px;">
-                    <input type="text" name="table_search" class="form-control float-right"
-                      placeholder="Buscar Proveedor">
-                    <div class="input-group-append mr-3">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
+                  <h3 class="card-title">Lista de Proveedores</h3>
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
                       data-source="clientes.html" data-source-selector="#card-refresh-content"
@@ -341,22 +324,28 @@
                   </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 50vh;">
+                <div class="card-body table-responsive">
                   <table class="table table-head-fixed text-nowrap" id="tablaProveedores">
                     <thead>
                       <tr>
-                        <th>Nombre del Rubro</th>
+                        <th>Nombre del Proveedor</th>
+                        <th>Rubro</th>
+                        <th>Contacto</th>
                         <th>Razón Social</th>
                         <th>Dirección</th>
-                        <th style="width: 150px">CUIT</th>
+                        <th style="max-width: 80px">Teléfono</th>
+                        <th style="max-width: 60px">Modificar</th>
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
-                        <th>Nombre del Rubro</th>
+                        <th>Nombre del Proveedor</th>
+                        <th>Rubro</th>
+                        <th>Contacto</th>
                         <th>Razón Social</th>
                         <th>Dirección</th>
-                        <th style="width: 150px">CUIT</th>
+                        <th style="max-width: 80px">Teléfono</th>
+                        <th style="max-width: 60px">Modificar</th>
                       </tr>
                     </tfoot>
                   </table>
@@ -379,6 +368,117 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="modal">Modificar Proveedor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="formEdit">
+            <input type="text" id="proveedorIdEdit" hidden>
+            <div class="row">
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Nombre del Proveedor</label>
+                  <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..."
+                    id="proveedorEdit" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Razón Social</label>
+                  <input type="text" class="form-control" placeholder="Ingrese el nombre de la razón social ..."
+                    id="razonSocialEdit" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- select -->
+                <div class="form-group">
+                  <label>*Rubro</label>
+                  <select class="form-control" id="rubroEdit" required>
+                    <option value="Rubro 1">Rubro por defecto</option>
+                    <option value="Rubro 2">Rubro 2</option>
+                    <option value="Rubro 3">Rubro 3</option>
+                    <option value="Rubro 4">Rubro 4</option>
+                    <option value="Rubro 5">Rubro 5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>N° CUIT (sin guiones)</label>
+                  <input type="tel" class="form-control" placeholder="N° CUIT" id="cuitEdit" minlength="11"
+                    min="9999999999" maxlength="11" pattern="\d*" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- select -->
+                <div class="form-group">
+                  <label>*Condicion Fiscal</label>
+                  <select class="form-control" id="condicionFiscalEdit" required>
+                    <option value="Condicion Fiscal 1">Condicion Fiscal por defecto</option>
+                    <option value="Condicion Fiscal 2">Condicion Fiscal 2</option>
+                    <option value="Condicion Fiscal 3">Condicion Fiscal 3</option>
+                    <option value="Condicion Fiscal 4">Condicion Fiscal 4</option>
+                    <option value="Condicion Fiscal 5">Condicion Fiscal 5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Dirección</label>
+                  <input type="text" class="form-control" placeholder="Ingrese la dirección del proveedor"
+                    id="direccionEdit" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- tel input -->
+                <div class="form-group">
+                  <label>Teléfono <small>(Ingresar solo números)</small> </label>
+                  <input type="tel" class="form-control" placeholder="N° de teléfono" id="telEdit" minlength="8"
+                    maxlength="14" pattern="\d*" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Contacto</label>
+                  <input type="text" class="form-control" placeholder="Ingrese el contacto" id="contactoEdit">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>IIBB</label>
+                  <select class="form-control" id="iibbEdit">
+                    <option value="IIBB 1">IIBB por defecto</option>
+                    <option value="IIBB 2">IIBB 2</option>
+                    <option value="IIBB 3">IIBB 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn font-weight-bold btn-warning mr-3" onclick="editarProveedor()"
+            data-dismiss="modal">GUARDAR
+            DATOS</button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- jQuery -->
   <script src="../Atoms/plugins/jquery/jquery.min.js"></script>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LeaniM | Precios</title>
+  <title>LeaniM | Productos</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -15,8 +15,9 @@
   <link rel="stylesheet" href="../Atoms/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../Atoms/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="../Atoms/plugins/jqvmap/jqvmap.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../Atoms/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../Atoms/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../Atoms/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
@@ -175,7 +176,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Precios de Materiales</h1>
+              <h1 class="m-0 text-dark">Lista de Productos</h1>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -185,6 +186,103 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <!-- general form elements -->
+              <div class="card card-purple ">
+                <!-- <div class="card card-success collapsed-card"> -->
+                <div class="card-header">
+                  <h3 class="card-title">Crear Producto</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
+                      data-source="clientes.html" data-source-selector="#card-refresh-content"
+                      data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                        class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <form role="form" id="formProductos">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Nombre del Proveedor</label>
+                          <select type="text" class="form-control" id="listaProveedores" required>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Nombre del Producto</label>
+                          <input type="text" class="form-control" placeholder="Ingrese nombre del producto ..."
+                            id="producto" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Marca</label>
+                          <input type="text" class="form-control" placeholder="Ingrese la marca ..." id="marca"
+                            required>
+                        </div>
+                      </div>
+                      <div class="col-sm-1">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Precio</label>
+                          <input type="number" class="form-control" placeholder="Ingrese el precio ..." id="precio"
+                            required>
+                        </div>
+                      </div>
+                      <div class="col-sm-1">
+                        <!-- select -->
+                        <div class="form-group">
+                          <label>IVA</label>
+                          <select class="form-control" id="iva" required>
+                            <option value="21">21%</option>
+                            <option value="10.5">10.5%</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- select -->
+                        <div class="form-group">
+                          <label>Productivo o no productivo</label>
+                          <select class="form-control" id="tipo" required>
+                            <option value="No Productivo">No productivo</option>
+                            <option value="Productivo">Productivo</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-1">
+                        <!-- select -->
+                        <div class="form-group">
+                          <label>Calidad</label>
+                          <select class="form-control" id="calidad" required>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Baja">Baja</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="float-right">
+                      <button type="submit" class="btn font-weight-bold bg-purple mr-3">INGRESAR PRODUCTO</button>
+                      <button type="reset" class="btn btn-default">Cancelar</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-12 -->
+          </div>
+
           <!-- row -->
           <div class="row">
             <div class="col-12">
@@ -192,7 +290,7 @@
                 <div class="card-header">
                   <div class="input-group float-left" style="width: 275px;">
                     <input type="text" name="table_search" class="form-control float-right"
-                      placeholder="Buscar Material">
+                      placeholder="Buscar Producto">
                     <div class="input-group-append mr-3">
                       <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                     </div>
@@ -206,126 +304,30 @@
                   </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 50vh;">
-                  <table class="table table-head-fixed text-nowrap">
+                <div class="card-body table-responsive">
+                  <table class="table table-head-fixed text-nowrap" id="tablaProductos">
                     <thead>
                       <tr>
-                        <th style="width: 50px">ID</th>
-                        <th>Material</th>
+                        <th>Nombre del Producto</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Calidad</th>
                         <th>Precio</th>
-                        <th style="width: 150px">Panel Precios</th>
+                        <th style="max-width: 80px">IVA</th>
+                        <th style="max-width: 60px">Modificar</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tfoot>
                       <tr>
-                        <td>3</td>
-                        <td>Material detallado X</td>
-                        <td>159</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
+                        <th>Nombre del Producto</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Calidad</th>
+                        <th>Precio</th>
+                        <th style="max-width: 80px">IVA</th>
+                        <th style="max-width: 60px">Modificar</th>
                       </tr>
-                      <tr>
-                        <td>9</td>
-                        <td>Material en detalle tipo Y</td>
-                        <td>250</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>7</td>
-                        <td>Materiales de ejemplo Z</td>
-                        <td>375</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Material detallado X</td>
-                        <td>159</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Material en detalle tipo Y</td>
-                        <td>250</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Materiales de ejemplo Z</td>
-                        <td>375</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Material detallado X</td>
-                        <td>159</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Material en detalle tipo Y</td>
-                        <td>250</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Materiales de ejemplo Z</td>
-                        <td>375</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Material detallado X</td>
-                        <td>159</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Material en detalle tipo Y</td>
-                        <td>250</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Materiales de ejemplo Z</td>
-                        <td>375</td>
-                        <td>
-                          <a class="btn btn-sm btn-warning" href="#">Modificar
-                            <i class="fa fa-edit"></i></a>
-                        </td>
-                      </tr>
-                    </tbody>
+                    </tfoot>
                   </table>
                 </div>
                 <!-- /.card-body -->
@@ -357,15 +359,11 @@
   </script>
   <!-- Bootstrap 4 -->
   <script src="../Atoms/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- ChartJS -->
-  <script src="../Atoms/plugins/chart.js/Chart.min.js"></script>
-  <!-- Sparkline -->
-  <script src="../Atoms/plugins/sparklines/sparkline.js"></script>
-  <!-- JQVMap -->
-  <script src="../Atoms/plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="../Atoms/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="../Atoms/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- DataTables -->
+  <script src="../Atoms/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../Atoms/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../Atoms/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../Atoms/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
   <!-- daterangepicker -->
   <script src="../Atoms/plugins/moment/moment.min.js"></script>
   <script src="../Atoms/plugins/daterangepicker/daterangepicker.js"></script>
@@ -381,6 +379,7 @@
   <script src="../Atoms/dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../Atoms/dist/js/demo.js"></script>
+  <script src="../Atoms/productos.js"></script>
 </body>
 
 </html>
