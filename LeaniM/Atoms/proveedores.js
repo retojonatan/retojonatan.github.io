@@ -8,6 +8,7 @@ formProveedor.addEventListener("submit", function (e) {
 
 $(window).on("load", function () {
   uploadTable();
+  listarTipoProveedores();
 });
 
 function altaProveedor() {
@@ -17,7 +18,7 @@ function altaProveedor() {
     Cuit: document.getElementById('cuit').value.toString(),
     Direccion: document.getElementById('direccion').value,
     Telefono: document.getElementById('tel').value.toString(),
-    Rubro: document.getElementById('rubro').value,
+    TipoRubro: document.getElementById('tipo').value,
     Contacto: document.getElementById('contacto').value,
     CondicionFiscal: document.getElementById('condicionFiscal').value,
     IIBB: document.getElementById('iibb').value,
@@ -51,7 +52,6 @@ function mostrarProveedor(idProveedor) {
   });
 
   req.done(function (res) {
-    console.log(res);
     completarModal(res);
     $('#modalEdit').modal('show');
   });
@@ -67,7 +67,7 @@ function completarModal(data) {
   document.getElementById('cuitEdit').value = data.Cuit;
   document.getElementById('direccionEdit').value = data.Direccion;
   document.getElementById('telEdit').value = data.Telefono;
-  document.getElementById('rubroEdit').value = data.Rubro;
+  document.getElementById('tipoEdit').value = data.TipoRubro;
   document.getElementById('contactoEdit').value = data.Contacto;
   document.getElementById('condicionFiscalEdit').value = data.CondicionFiscal;
   document.getElementById('iibbEdit').value = data.IIBB;
@@ -82,7 +82,7 @@ function editarProveedor() {
     Cuit: document.getElementById('cuitEdit').value.toString(),
     Direccion: document.getElementById('direccionEdit').value,
     Telefono: document.getElementById('telEdit').value.toString(),
-    Rubro: document.getElementById('rubroEdit').value,
+    TipoRubro: document.getElementById('tipoEdit').value,
     Contacto: document.getElementById('contactoEdit').value,
     CondicionFiscal: document.getElementById('condicionFiscalEdit').value,
     IIBB: document.getElementById('iibbEdit').value,
@@ -104,6 +104,37 @@ function editarProveedor() {
   });
 }
 
+function listarTipoProveedores() {
+  var lista = document.getElementById("tipo");
+  var listaEdit = document.getElementById("tipoEdit");
+  var tabla = $.ajax({
+    url: 'http://leanim.switchit.com.ar/OperacionTiposRubro/ObtenerTipos',
+    type: "GET",
+    data: {},
+    contentType: "application/json"
+  });
+
+  tabla.done(function (res) {
+    res.forEach(element => {
+      var tipoRubro = document.createElement('option');
+      tipoRubro.appendChild(document.createTextNode(element.Nombre));
+      tipoRubro.value = element.Nombre;
+      lista.appendChild(tipoRubro);
+    });
+    res.forEach(element => {
+      var tipoRubro = document.createElement('option');
+      tipoRubro.appendChild(document.createTextNode(element.Nombre));
+      tipoRubro.value = element.Nombre;
+      listaEdit.appendChild(tipoRubro);
+    });
+  });
+
+  tabla.fail(function (err) {
+    console.log(err)
+  });
+}
+
+
 function uploadTable() {
 
   var tabla = $.ajax({
@@ -121,7 +152,7 @@ function uploadTable() {
           "data": "Nombre"
         },
         {
-          "data": "Rubro"
+          "data": "TipoRubro"
         },
         {
           "data": "Contacto"

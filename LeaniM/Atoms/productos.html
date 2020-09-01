@@ -205,11 +205,12 @@
                 <div class="card-body">
                   <form role="form" id="formProductos">
                     <div class="row">
-                      <div class="col-sm-3">
+                      <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
-                          <label>Nombre del Proveedor</label>
+                          <label>Seleccione el Proveedor</label>
                           <select type="text" class="form-control" id="listaProveedores" required>
+                            <option disabled selected hidden></option>
                           </select>
                         </div>
                       </div>
@@ -217,19 +218,18 @@
                         <!-- text input -->
                         <div class="form-group">
                           <label>Nombre del Producto</label>
-                          <input type="text" class="form-control" placeholder="Ingrese nombre del producto ..."
-                            id="producto" required>
+                          <input type="text" class="form-control" placeholder="Ingrese el producto ..." id="producto"
+                            required>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Marca</label>
-                          <input type="text" class="form-control" placeholder="Ingrese la marca ..." id="marca"
-                            required>
+                          <input type="text" class="form-control" placeholder="Ingrese la marca ..." id="marca">
                         </div>
                       </div>
-                      <div class="col-sm-1">
+                      <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Precio</label>
@@ -242,18 +242,17 @@
                         <div class="form-group">
                           <label>IVA</label>
                           <select class="form-control" id="iva" required>
-                            <option value="21">21%</option>
                             <option value="10.5">10.5%</option>
+                            <option selected value="21">21%</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <!-- select -->
                         <div class="form-group">
-                          <label>Productivo o no productivo</label>
-                          <select class="form-control" id="tipo" required>
-                            <option value="No Productivo">No productivo</option>
-                            <option value="Productivo">Productivo</option>
+                          <label>Seleccione el Rubro</label>
+                          <select class="form-control" id="rubro" required>
+                            <option disabled selected hidden value="Varios">Varios</option>
                           </select>
                         </div>
                       </div>
@@ -262,9 +261,9 @@
                         <div class="form-group">
                           <label>Calidad</label>
                           <select class="form-control" id="calidad" required>
-                            <option value="Media">Media</option>
-                            <option value="Alta">Alta</option>
                             <option value="Baja">Baja</option>
+                            <option selected value="Media">Media</option>
+                            <option value="Alta">Alta</option>
                           </select>
                         </div>
                       </div>
@@ -286,18 +285,12 @@
           <!-- row -->
           <div class="row">
             <div class="col-12">
-              <div class="card">
+              <div class="card card-purple">
                 <div class="card-header">
-                  <div class="input-group float-left" style="width: 275px;">
-                    <input type="text" name="table_search" class="form-control float-right"
-                      placeholder="Buscar Producto">
-                    <div class="input-group-append mr-3">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>
-                  </div>
+                  <h3 class="card-title">Lista de Productos</h3>
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
-                      data-source="clientes.html" data-source-selector="#card-refresh-content"
+                      data-source="productos.html" data-source-selector="#card-refresh-content"
                       data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                         class="fas fa-minus"></i></button>
@@ -310,7 +303,7 @@
                       <tr>
                         <th>Nombre del Producto</th>
                         <th>Marca</th>
-                        <th>Tipo</th>
+                        <th>Rubro</th>
                         <th>Calidad</th>
                         <th>Precio</th>
                         <th style="max-width: 80px">IVA</th>
@@ -321,7 +314,7 @@
                       <tr>
                         <th>Nombre del Producto</th>
                         <th>Marca</th>
-                        <th>Tipo</th>
+                        <th>Rubro</th>
                         <th>Calidad</th>
                         <th>Precio</th>
                         <th style="max-width: 80px">IVA</th>
@@ -349,6 +342,94 @@
   </div>
   <!-- ./wrapper -->
 
+  <!-- Modal -->
+  <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="modal">Modificar Producto</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="formEdit">
+            <input type="text" id="productoIdEdit" hidden>
+            <div class="row">
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Nombre del Proveedor</label>
+                  <select type="text" class="form-control" id="listaProveedoresEdit" required>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Nombre del Producto</label>
+                  <input type="text" class="form-control" placeholder="Ingrese nombre del producto ..."
+                    id="productoEdit" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Marca</label>
+                  <input type="text" class="form-control" placeholder="Ingrese la marca ..." id="marcaEdit">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- select -->
+                <div class="form-group">
+                  <label>Precio</label>
+                  <input type="number" class="form-control" placeholder="Ingrese el precio ..." id="precioEdit"
+                    required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>IVA</label>
+                  <select class="form-control" id="ivaEdit" required>
+                    <option value="10.5">10.5%</option>
+                    <option value="21">21%</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- select -->
+                <div class="form-group">
+                  <label>Rubro</label>
+                  <select class="form-control" id="rubroEdit" required>
+                    <option disabled selected hidden value="Varios">Varios</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Calidad</label>
+                  <select class="form-control" id="calidadEdit" required>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn font-weight-bold btn-warning mr-3" onclick="editarProducto()"
+            data-dismiss="modal">GUARDAR
+            DATOS</button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery -->
   <script src="../Atoms/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
@@ -375,8 +456,6 @@
   <script src="../Atoms/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../Atoms/dist/js/adminlte.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="../Atoms/dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../Atoms/dist/js/demo.js"></script>
   <script src="../Atoms/productos.js"></script>

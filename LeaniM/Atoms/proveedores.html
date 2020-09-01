@@ -217,27 +217,22 @@
                         <!-- text input -->
                         <div class="form-group">
                           <label>Razón Social</label>
-                          <input type="text" class="form-control" placeholder="Ingrese el nombre de la razón social ..."
+                          <input type="text" class="form-control" placeholder="Ingrese la razón social ..."
                             id="razonSocial" required>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <!-- select -->
                         <div class="form-group">
-                          <label>*Rubro</label>
-                          <select class="form-control" id="rubro" required>
-                            <option value="Rubro 1">Rubro por defecto</option>
-                            <option value="Rubro 2">Rubro 2</option>
-                            <option value="Rubro 3">Rubro 3</option>
-                            <option value="Rubro 4">Rubro 4</option>
-                            <option value="Rubro 5">Rubro 5</option>
+                          <label>Tipo</label>
+                          <select class="form-control" id="tipo" required>
                           </select>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
-                          <label>N° CUIT (sin guiones)</label>
+                          <label>N° CUIT <small>(sin guiones)</small></label>
                           <input type="tel" class="form-control" placeholder="N° CUIT" id="cuit" minlength="11"
                             min="9999999999" maxlength="11" pattern="\d*" required>
                         </div>
@@ -245,13 +240,12 @@
                       <div class="col-sm-2">
                         <!-- select -->
                         <div class="form-group">
-                          <label>*Condicion Fiscal</label>
+                          <label>Condicion Fiscal</label>
                           <select class="form-control" id="condicionFiscal" required>
-                            <option value="Condicion Fiscal 1">Condicion Fiscal por defecto</option>
-                            <option value="Condicion Fiscal 2">Condicion Fiscal 2</option>
-                            <option value="Condicion Fiscal 3">Condicion Fiscal 3</option>
-                            <option value="Condicion Fiscal 4">Condicion Fiscal 4</option>
-                            <option value="Condicion Fiscal 5">Condicion Fiscal 5</option>
+                            <option value="Responsable Inscripto">Responsable Inscripto</option>
+                            <option value="Consumidor Final">Consumidor Final</option>
+                            <option value="IVA Exento">IVA Exento</option>
+                            <option value="Otro">Otro</option>
                           </select>
                         </div>
                       </div>
@@ -269,9 +263,9 @@
                         <div class="col-sm-2">
                           <!-- tel input -->
                           <div class="form-group">
-                            <label>Teléfono <small>(Ingresar solo números)</small> </label>
+                            <label>Teléfono <small>(sin guiones)</small> </label>
                             <input type="tel" class="form-control" placeholder="N° de teléfono" id="tel" minlength="8"
-                              maxlength="14" pattern="\d*" required>
+                              maxlength="14" pattern="\d*">
                           </div>
                         </div>
                         <div class="col-sm-3">
@@ -283,7 +277,7 @@
                         </div>
                         <div class="col-sm-3">
                           <!-- text input -->
-                          <div class="form-group">
+                          <div class="form-group" hidden>
                             <label>IIBB</label>
                             <select class="form-control" id="iibb">
                               <option value="IIBB 1">IIBB por defecto</option>
@@ -317,7 +311,7 @@
                   <h3 class="card-title">Lista de Proveedores</h3>
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
-                      data-source="clientes.html" data-source-selector="#card-refresh-content"
+                      data-source="proveedores.html" data-source-selector="#card-refresh-content"
                       data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                         class="fas fa-minus"></i></button>
@@ -329,7 +323,7 @@
                     <thead>
                       <tr>
                         <th>Nombre del Proveedor</th>
-                        <th>Rubro</th>
+                        <th>Tipo</th>
                         <th>Contacto</th>
                         <th>Razón Social</th>
                         <th>Dirección</th>
@@ -340,7 +334,7 @@
                     <tfoot>
                       <tr>
                         <th>Nombre del Proveedor</th>
-                        <th>Rubro</th>
+                        <th>Tipo</th>
                         <th>Contacto</th>
                         <th>Razón Social</th>
                         <th>Dirección</th>
@@ -395,27 +389,22 @@
                 <!-- text input -->
                 <div class="form-group">
                   <label>Razón Social</label>
-                  <input type="text" class="form-control" placeholder="Ingrese el nombre de la razón social ..."
-                    id="razonSocialEdit" required>
+                  <input type="text" class="form-control" placeholder="Ingrese la razón social ..." id="razonSocialEdit"
+                    required>
                 </div>
               </div>
               <div class="col-sm-4">
                 <!-- select -->
                 <div class="form-group">
-                  <label>*Rubro</label>
-                  <select class="form-control" id="rubroEdit" required>
-                    <option value="Rubro 1">Rubro por defecto</option>
-                    <option value="Rubro 2">Rubro 2</option>
-                    <option value="Rubro 3">Rubro 3</option>
-                    <option value="Rubro 4">Rubro 4</option>
-                    <option value="Rubro 5">Rubro 5</option>
+                  <label>Tipo</label>
+                  <select class="form-control" id="tipoEdit" required>
                   </select>
                 </div>
               </div>
               <div class="col-sm-4">
                 <!-- text input -->
                 <div class="form-group">
-                  <label>N° CUIT (sin guiones)</label>
+                  <label>N° CUIT <small>(sin guiones)</small></label>
                   <input type="tel" class="form-control" placeholder="N° CUIT" id="cuitEdit" minlength="11"
                     min="9999999999" maxlength="11" pattern="\d*" required>
                 </div>
@@ -423,13 +412,12 @@
               <div class="col-sm-4">
                 <!-- select -->
                 <div class="form-group">
-                  <label>*Condicion Fiscal</label>
+                  <label>Condicion Fiscal</label>
                   <select class="form-control" id="condicionFiscalEdit" required>
-                    <option value="Condicion Fiscal 1">Condicion Fiscal por defecto</option>
-                    <option value="Condicion Fiscal 2">Condicion Fiscal 2</option>
-                    <option value="Condicion Fiscal 3">Condicion Fiscal 3</option>
-                    <option value="Condicion Fiscal 4">Condicion Fiscal 4</option>
-                    <option value="Condicion Fiscal 5">Condicion Fiscal 5</option>
+                    <option value="Responsable Inscripto">Responsable Inscripto</option>
+                    <option value="Consumidor Final">Consumidor Final</option>
+                    <option value="IVA Exento">IVA Exento</option>
+                    <option value="Otro">Otro</option>
                   </select>
                 </div>
               </div>
@@ -444,9 +432,9 @@
               <div class="col-sm-4">
                 <!-- tel input -->
                 <div class="form-group">
-                  <label>Teléfono <small>(Ingresar solo números)</small> </label>
+                  <label>Teléfono <small>(sin guiones)</small></label>
                   <input type="tel" class="form-control" placeholder="N° de teléfono" id="telEdit" minlength="8"
-                    maxlength="14" pattern="\d*" required>
+                    maxlength="14" pattern="\d*">
                 </div>
               </div>
               <div class="col-sm-4">
@@ -458,7 +446,7 @@
               </div>
               <div class="col-sm-4">
                 <!-- text input -->
-                <div class="form-group">
+                <div class="form-group" hidden>
                   <label>IIBB</label>
                   <select class="form-control" id="iibbEdit">
                     <option value="IIBB 1">IIBB por defecto</option>
@@ -506,8 +494,6 @@
   <script src="../Atoms/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../Atoms/dist/js/adminlte.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="../Atoms/dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../Atoms/dist/js/demo.js"></script>
   <script src="../Atoms/proveedores.js"></script>
