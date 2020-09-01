@@ -205,11 +205,12 @@
                 <div class="card-body">
                   <form role="form" id="formCompras">
                     <div class="row">
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                         <!-- text input -->
                         <div class="form-group">
-                          <label>Nombre del Proveedor</label>
+                          <label>Seleccione el Proveedor</label>
                           <select type="text" class="form-control" id="listaProveedores" required>
+                            <option disabled selected hidden></option>
                           </select>
                         </div>
                       </div>
@@ -217,14 +218,14 @@
                         <!-- text input -->
                         <div class="form-group">
                           <label>Razón Social</label>
-                          <input type="text" class="form-control" id="condicion" readonly>
+                          <input type="text" class="form-control" id="razonSocial" readonly>
                         </div>
                       </div>
                       <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Condición Fiscal</label>
-                          <input type="text" class="form-control" id="razonSocial" readonly>
+                          <input type="text" class="form-control" id="condicion" readonly>
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -234,11 +235,11 @@
                           <input type="text" class="form-control" id="tipo" readonly>
                         </div>
                       </div>
-                      <div class="col-sm-2">
+                      <div class="col-sm-1">
                         <!-- text input -->
                         <div class="form-group">
                           <label>N° Factura</label>
-                          <input type="text" class="form-control" value="0" id="numFc">
+                          <input type="text" class="form-control text-right" value="0" id="numFc">
                         </div>
                       </div>
                       <div class="col-sm-2">
@@ -250,13 +251,14 @@
                         </div>
                       </div>
                     </div>
-                    <div id="listaProductos">
+                    <div id="filaProducto">
                       <div class="row" id="columnaProducto">
                         <div class="col-sm-2">
                           <!-- text input -->
                           <div class="form-group">
                             <label>Producto</label>
                             <select type="text" class="form-control" name="listaProductos" id="listaProductos" required>
+                              <option disabled selected hidden></option>
                             </select>
                           </div>
                         </div>
@@ -325,7 +327,8 @@
                     </div>
                     <hr>
                     <div class="float-right">
-                      <button type="submit" class="btn font-weight-bold btn-warning mr-3" id="submitBtn">INGRESAR
+                      <button type="submit" disabled class="btn font-weight-bold btn-warning mr-3"
+                        id="submitBtn">INGRESAR
                         COMPRA</button>
                       <button type="reset" class="btn btn-default">Cancelar</button>
                     </div>

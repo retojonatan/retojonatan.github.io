@@ -1,5 +1,6 @@
 var formCompras = document.getElementById('formCompras');
-var proveedor = document.getElementById('listaProveedores');
+var listaProveedores = document.getElementById('listaProveedores');
+var listaProductos = document.getElementById('listaProductos');
 var idEditable = 0;
 
 formCompras.addEventListener("submit", function (e) {
@@ -7,8 +8,13 @@ formCompras.addEventListener("submit", function (e) {
   e.preventDefault();
 });
 
-proveedor.addEventListener('select', function (e) {
-  listarProductos();
+listaProveedores.addEventListener('change', function (e) {
+  presentarDatosProveedor(e.target.value);
+  listarProductos(listaProductos);
+})
+
+listaProductos.addEventListener('change', function (e) {
+  presentarDatosProducto(e.target.value);
 })
 
 $(window).on("load", function () {
@@ -21,6 +27,49 @@ $(window).on("load", function () {
     document.getElementById('subtotal').value = document.getElementById('precio').value * document.getElementById('cantidad').value;
   });
 });
+
+function presentarDatosProveedor(idProveedor) {
+  var req = $.ajax({
+    url: 'http://leanim.switchit.com.ar/OperacionProveedores/ObtenerProveedor',
+    type: "GET",
+    data: {
+      id: idProveedor
+    },
+    contentType: "application/json"
+  });
+
+  req.done(function (res) {
+    document.getElementById('razonSocial').value = res.RazonSocial;
+    document.getElementById('condicion').value = res.CondicionFiscal;
+    document.getElementById('tipo').value = res.TipoRubro;
+  });
+
+  req.fail(function (err) {
+    console.log(err);
+  });
+}
+
+function presentarDatosProducto(idProducto) {
+  var req = $.ajax({
+    url: 'http://leanim.switchit.com.ar/OperacionProductos/ObtenerProducto',
+    type: "GET",
+    data: {
+      id: idProducto
+    },
+    contentType: "application/json"
+  });
+
+  req.done(function (res) {
+    document.getElementById('marca').value = res.Marca;
+    document.getElementById('precio').value = res.Precio;
+    document.getElementById('iva').value = res.IVA;
+    document.getElementById('subtotal').value = document.getElementById('precio').value * document.getElementById('cantidad').value;
+  });
+
+  req.fail(function (err) {
+    console.log(err);
+  });
+}
 
 function altaCompra() {
   var jsonData = {
@@ -38,7 +87,7 @@ function altaCompra() {
 
   req.done(function () {
     console.log("OK");
-    alert(JSON.stringify(jsonData));
+    console.log(JSON.stringify(jsonData));
   });
 
   req.fail(function (err) {
@@ -63,12 +112,6 @@ function listarProveedores() {
       proveedor.value = element.ProveedorId;
       lista.appendChild(proveedor);
     });
-    res.forEach(element => {
-      var proveedor = document.createElement('option');
-      proveedor.appendChild(document.createTextNode(element.Nombre));
-      proveedor.value = element.ProveedorId;
-      listaEdit.appendChild(proveedor);
-    });
   });
 
   tabla.fail(function (err) {
@@ -76,9 +119,7 @@ function listarProveedores() {
   });
 }
 
-function listarProductos() {
-  var lista = document.getElementById("listaProductos");
-  var listaEdit = document.getElementById("listaProductosEdit");
+function listarProductos(lista) {
   var tabla = $.ajax({
     url: 'http://leanim.switchit.com.ar/OperacionProductos/ObtenerProductos',
     type: "GET",
@@ -89,15 +130,9 @@ function listarProductos() {
   tabla.done(function (res) {
     res.forEach(element => {
       var producto = document.createElement('option');
-      producto.appendChild(document.createTextNode(element.Nombre));
-      producto.value = element.productoId;
+      producto.appendChild(document.createTextNode(element.Descripcion));
+      producto.value = element.ProductoId;
       lista.appendChild(producto);
-    });
-    res.forEach(element => {
-      var producto = document.createElement('option');
-      producto.appendChild(document.createTextNode(element.Nombre));
-      producto.value = element.productoId;
-      listaEdit.appendChild(producto);
     });
   });
 
@@ -107,20 +142,27 @@ function listarProductos() {
 }
 
 // Manejo de vista para productos
-var listaProductos = document.getElementById('listaProductos');
+var filaProducto = document.getElementById('filaProducto');
 var count = 1;
 
 function addProduct() {
-  var clon = listaProductos.firstElementChild.cloneNode(true);
+  var clon = filaProducto.firstElementChild.cloneNode(true);
   clon.id = "columnaProducto" + count;
+  for (var i = 0; i < clon.getElementsByTagName('select').length; i++) {
+    clon.getElementsByTagName('select')[i].id = filaProducto.getElementsByTagName('select')[i].id + count;
+    clon.getElementsByTagName('select')[i].value = "";
+    clon.getElementsByTagName('select')[i].addEventListener('change', function (e) {
+      presentarDatosProducto(e.target.value);
+    })
+  }
   for (var i = 0; i < clon.getElementsByTagName('input').length; i++) {
-    clon.getElementsByTagName('input')[i].id = listaProductos.getElementsByTagName('input')[i].id + count;
+    clon.getElementsByTagName('input')[i].id = filaProducto.getElementsByTagName('input')[i].id + count;
     clon.getElementsByTagName('input')[i].value = "";
   }
   var precio = "precio" + count;
   var cantidad = "cantidad" + count;
   var subtotal = "subtotal" + count;
-  listaProductos.appendChild(clon);
+  filaProducto.appendChild(clon);
   document.getElementById(precio.toString()).addEventListener('change', function () {
     document.getElementById(subtotal.toString()).value = document.getElementById(precio).value * document.getElementById(cantidad).value;
   });
@@ -132,10 +174,10 @@ function addProduct() {
 }
 
 function deleteProduct() {
-  if (listaProductos.lastChild != listaProductos.firstElementChild) {
-    listaProductos.lastChild.remove();
+  if (filaProducto.lastChild != filaProducto.firstElementChild) {
+    filaProducto.lastChild.remove();
     count--;
-    hideDelete(listaProductos);
+    hideDelete(filaProducto);
   }
 }
 
@@ -190,6 +232,3 @@ function uploadTable() {
     console.log("fail" + err);
   });
 }
-
-
-// document.getElementsByName("listaProductos")[0]
