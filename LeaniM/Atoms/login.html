@@ -71,7 +71,7 @@
       <section class="content">
         <div class="container-fluid pt-5">
           <main class="col bg-transparent w-100 d-flex">
-            <form class="form-signin p-5 bg-gradient-info">
+            <form class="form-signin p-5 bg-gradient-info" id="loginForm">
               <div class="text-center mb-4">
                 <h2 class="mb-3">
                   <i class="fa fa-user"></i> LOGIN</h2>
@@ -80,17 +80,19 @@
                 </p>
               </div>
               <div class="form-label-group">
-                <input type="text" id="inputName" class="form-control" placeholder="User name" required="" autofocus="">
-                <label for="inputName">User name</label>
+                <input type="text" id="inputName" class="form-control" placeholder="Nombre de Usuario" autofocus=""
+                  minlength="4" required>
+                <label for="inputName">Nombre de Usuario</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" minlength="5"
+                  required>
                 <label for="inputPassword">Password</label>
               </div>
 
               <div class="my-3">
-                <a href="./Index" class="btn btn-lg btn-outline-light btn-block" type="submit">Ingresar</a>
+                <button class="btn btn-lg btn-outline-light btn-block" type="submit">Ingresar</button>
               </div>
             </form>
           </main>
@@ -106,6 +108,27 @@
   </div>
   <!-- ./wrapper -->
 
+  <!-- Modal Cambio Precio -->
+  <div class="modal fade" id="modalLogFailed" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="modal">Login Fallido</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>El nombre de usuario y el password no coinciden.</p>
+        </div>
+        <div class="modal-footer">
+          <small class="float-right mr-4" id="logs"></small>
+          <button type="button" class="btn font-weight-bold btn-warning mr-3" data-dismiss="modal">ACEPTAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- jQuery -->
   <script src="../Atoms/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
@@ -116,30 +139,11 @@
   </script>
   <!-- Bootstrap 4 -->
   <script src="../Atoms/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- ChartJS -->
-  <script src="../Atoms/plugins/chart.js/Chart.min.js"></script>
-  <!-- Sparkline -->
-  <script src="../Atoms/plugins/sparklines/sparkline.js"></script>
-  <!-- JQVMap -->
-  <script src="../Atoms/plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="../Atoms/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="../Atoms/plugins/jquery-knob/jquery.knob.min.js"></script>
-  <!-- daterangepicker -->
-  <script src="../Atoms/plugins/moment/moment.min.js"></script>
-  <script src="../Atoms/plugins/daterangepicker/daterangepicker.js"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <script src="../Atoms/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-  <!-- Summernote -->
-  <script src="../Atoms/plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
   <script src="../Atoms/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../Atoms/dist/js/adminlte.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="../Atoms/dist/js/pages/dashboard.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../Atoms/dist/js/demo.js"></script>
+  <script src="../Atoms/login.js"></script>
 </body>
 
 </html>

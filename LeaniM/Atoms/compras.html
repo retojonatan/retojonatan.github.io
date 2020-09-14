@@ -34,7 +34,7 @@
     rel="icon" type="image/x-icon" />
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed d-none">
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -44,16 +44,16 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./" class="nav-link">Dashboard</a>
+          <a href="./" class="nav-link" hidden>Dashboard</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./Productos" class="nav-link">Productos</a>
+          <a href="./Productos" class="nav-link" hidden>Productos</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./Pagos" class="nav-link">Pagos</a>
+          <a href="./Pagos" class="nav-link" hidden>Pagos</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./Remitos" class="nav-link">Remitos</a>
+          <a href="./Remitos" class="nav-link" hidden>Remitos</a>
         </li>
       </ul>
 
@@ -90,8 +90,8 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="./Index" class="nav-link">
+            <li class="nav-item" hidden>
+              <a href="./" class="nav-link">
                 <i class="fa fa-home nav-icon"></i>
                 <p>Dashboard</p>
               </a>
@@ -107,17 +107,12 @@
               <ul class="nav nav-treeview bg-navy pl-2">
                 <li class="nav-item">
                   <a href="./Clientes" class="nav-link">
-                    <i class="fa fa-search nav-icon"></i>
-                    <p>Búsqueda</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./AltaClientes" class="nav-link">
                     <i class="far fa-check-circle nav-icon"></i>
                     <p>Registro</p>
                   </a>
                 </li>
-                <li class="nav-item">
+
+                <li class="nav-item" hidden>
                   <a href="./PanelClientes" class="nav-link">
                     <i class="far fa-user nav-icon"></i>
                     <p>Panel Cliente</p>
@@ -143,13 +138,13 @@
                 <p>Compras</p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" hidden>
               <a href="./Remitos" class="nav-link">
                 <i class="fas fa-columns nav-icon"></i>
                 <p>Remitos</p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" hidden>
               <a href="./Pagos" class="nav-link">
                 <i class="fas fa-wallet nav-icon"></i>
                 <p>Pagos</p>
@@ -205,7 +200,9 @@
                 <div class="card-body">
                   <form role="form" id="formCompras">
                     <div class="row">
-                      <div class="col-sm-3">
+                      <input type="text" class="form-control" id="proveedorId" hidden readonly>
+                      <input type="text" class="form-control" id="cuit" hidden readonly>
+                      <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
                           <label>Seleccione el Proveedor</label>
@@ -238,6 +235,20 @@
                       <div class="col-sm-1">
                         <!-- text input -->
                         <div class="form-group">
+                          <label>Comprobante</label>
+                          <select type="text" class="form-control" id="comprobante" required>
+                            <option disabled selected hidden></option>
+                            <option value="Fc A">Fc A</option>
+                            <option value="Fc B">Fc B</option>
+                            <option value="Fc C">Fc C</option>
+                            <option value="Ticket">Ticket</option>
+                            <option value="S/C">S/C</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-1">
+                        <!-- text input -->
+                        <div class="form-group">
                           <label>N° Factura</label>
                           <input type="text" class="form-control text-right" value="0" id="numFc">
                         </div>
@@ -245,7 +256,7 @@
                       <div class="col-sm-2">
                         <!-- text input -->
                         <div class="form-group">
-                          <label>Fecha Facturación</label>
+                          <label>Fecha Fc</label>
                           <input type="date" class="form-control datetimepicker-input" data-target="#timepicker" name=""
                             value="" id="fechaFc" required>
                         </div>
@@ -269,16 +280,27 @@
                             <input type="text" class="form-control" id="marca" readonly>
                           </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                           <!-- text input -->
                           <div class="form-group">
-                            <label>Precio</label>
+                            <label>Precio Unit.</label>
                             <div class="input-group">
-                              <div class="input-group-prepend">
+                              <input type="number" class="form-control text-right" min="0" id="precio" required>
+                              <div class="input-group-append">
                                 <span class="input-group-text">$</span>
                               </div>
-                              <input type="number" class="form-control" placeholder="Ingrese el monto" min="0"
-                                id="precio" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Guardar Precio</label>
+                            <div class="input-group">
+                              <select type="text" class="form-control text-right" value="" id="guardarPrecio" required>
+                                <option selected value="No">NO</option>
+                                <option value="Si">SI</option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -286,15 +308,8 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Cantidad</label>
-                            <input type="number" class="form-control" min="1" value="1" id="cantidad" required>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <!-- text input -->
-                          <div class="form-group">
-                            <label>Subtotal</label>
-                            <input type="number" class="form-control" placeholder="Precio subtotal" value="" min="0"
-                              id="subtotal" readonly>
+                            <input type="number" class="form-control text-right" min="1" value="1" name="cantidad"
+                              id="cantidad" required>
                           </div>
                         </div>
                         <div class="col-sm-1">
@@ -302,9 +317,21 @@
                           <div class="form-group">
                             <label>IVA %</label>
                             <div class="input-group">
-                              <input type="number" class="form-control" value="" id="iva" readonly>
+                              <select type="text" class="form-control text-right" value="" id="iva" required>
+                                <option disabled selected hidden></option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>IVA $ Unit.</label>
+                            <div class="input-group">
+                              <input type="number" class="form-control text-right" value="0" min="0" id="ivaPesos"
+                                readonly>
                               <div class="input-group-append">
-                                <span class="input-group-text">%</span>
+                                <span class="input-group-text">$</span>
                               </div>
                             </div>
                           </div>
@@ -312,9 +339,22 @@
                         <div class="col-sm-2">
                           <!-- text input -->
                           <div class="form-group">
-                            <label>Monto Total</label>
-                            <input type="number" class="form-control" placeholder="Monto Total" value="" min="0"
-                              id="total" readonly>
+                            <label>Precio Unitario Bruto</label>
+                            <div class="input-group">
+                              <input type="number" class="form-control text-right" value="0" min="0" id="precioBruto"
+                                readonly>
+                              <div class="input-group-append">
+                                <span class="input-group-text">$</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-1">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Subtotal</label>
+                            <input type="number" class="form-control text-right" placeholder="" value="0" min="0"
+                              id="subtotal" readonly>
                           </div>
                         </div>
                       </div>
@@ -326,11 +366,44 @@
                         style="display: none;"><i class="fa fa-minus"> </i> Eliminar producto</button>
                     </div>
                     <hr>
+                    <div class="float-left">
+                      <div class="form-group row">
+                        <label for="observaciones" class="col-sm-5 col-form-label">Observaciones:</label>
+                        <div class="col-sm-7">
+                          <div class="input-group">
+                            <textarea type="text" class="form-control" id="observaciones" cols="60" rows="3"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="float-right">
-                      <button type="submit" disabled class="btn font-weight-bold btn-warning mr-3"
-                        id="submitBtn">INGRESAR
+                      <div class="form-group row">
+                        <label for="ivaTotal" class="col-sm-5 col-form-label">IVA Total:</label>
+                        <div class="col-sm-7">
+                          <div class="input-group">
+                            <input type="number" class="form-control text-right" id="ivaTotal" value="0" min="0"
+                              readonly required>
+                            <div class="input-group-append">
+                              <span class="input-group-text">$</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="montoTotal" class="col-sm-5 col-form-label">Monto Total:</label>
+                        <div class="col-sm-7">
+                          <div class="input-group">
+                            <input type="number" class="form-control text-right" id="montoTotal" value="0" min="0"
+                              readonly required>
+                            <div class="input-group-append">
+                              <span class="input-group-text">$</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn font-weight-bold btn-warning mr-3" id="submitBtn">INGRESAR
                         COMPRA</button>
-                      <button type="reset" class="btn btn-default">Cancelar</button>
+                      <button type="reset" class="btn btn-default" id="cancelar">Cancelar</button>
                     </div>
                   </form>
                 </div>
@@ -355,23 +428,23 @@
                   <table class="table table-head-fixed text-nowrap" id="tablaCompras">
                     <thead>
                       <tr>
-                        <th style="width: 80px">Fecha Facturación</th>
-                        <th style="width: 80px">Nº de Factura</th>
+                        <th style="width: 100px">Fecha Fc</th>
+                        <th style="width: 80px;">ID Compra</th>
                         <th>Nombre del Proveedor</th>
-                        <th>Rubro</th>
-                        <th>Productos</th>
-                        <th style="width: 60px">Total</th>
+                        <th>CUIT</th>
+                        <th style="width: 100px">Nº de Factura</th>
+                        <th style="width: 120px">Monto Total</th>
                         <th style="width: 80px">Panel Compra</th>
                       </tr>
                     </thead>
                     <tfoot>
                       <tr>
-                        <th style="width: 80px">Fecha Facturación</th>
-                        <th style="width: 80px">Nº de Factura</th>
+                        <th style="width: 100px">Fecha Fc</th>
+                        <th style="width: 80px;">ID Compra</th>
                         <th>Nombre del Proveedor</th>
-                        <th>Rubro</th>
-                        <th>Productos</th>
-                        <th style="width: 60px">Total</th>
+                        <th>CUIT</th>
+                        <th style="width: 100px">Nº de Factura</th>
+                        <th style="width: 120px">Monto Total</th>
                         <th style="width: 80px">Panel Compra</th>
                       </tr>
                     </tfoot>
@@ -395,6 +468,33 @@
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="modalDel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h5 class="modal-title" id="modalDel"></h5>
+          <input type="text" hidden id="idBorrar">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Una vez eliminada la compra no podrá recuperar la información de la misma.</p>
+          <p>Esta seguro que quiere eliminar la compra?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn font-weight-bold btn-danger mr-3" type="button" disabled id="borrarBtn"
+            data-dismiss="modal" onclick="eliminarCompra()">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="sr-only">ELIMINAR</span>
+          </button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- jQuery -->
   <script src="../Atoms/plugins/jquery/jquery.min.js"></script>
@@ -425,6 +525,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="../Atoms/dist/js/demo.js"></script>
   <script src="../Atoms/compras.js"></script>
+  <script src="../Atoms/session.js"></script>
 </body>
 
 </html>

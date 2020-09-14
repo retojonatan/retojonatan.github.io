@@ -1,6 +1,7 @@
 var formProductos = document.getElementById('formProductos');
 var listaProveedores = document.getElementById('listaProveedores');
-var listaProveedores = document.getElementById('listaProveedores');
+var listaProveedoresEdit = document.getElementById('listaProveedoresEdit');
+var valorRubroEdit = "";
 var idEditable = 0;
 
 formProductos.addEventListener("submit", function (e) {
@@ -24,12 +25,12 @@ $(window).on("load", function () {
 function altaProducto() {
   var jsonData = {
     ProveedorId: document.getElementById('listaProveedores').value,
-    Descripcion: document.getElementById('producto').value,
+    NombreProducto: document.getElementById('producto').value,
     Marca: document.getElementById('marca').value,
-    Tipo: document.getElementById('rubro').value,
+    Rubro: document.getElementById('rubro').value,
     Calidad: document.getElementById('calidad').value,
     Precio: document.getElementById('precio').value.toString(),
-    IVA: document.getElementById('iva').value,
+    IVA: parseFloat(document.getElementById('iva').value),
   };
 
   var req = $.ajax({
@@ -102,12 +103,12 @@ function mostrarProducto(idProducto) {
 function completarModal(data) {
   listarRubros(data.ProveedorId);
   document.getElementById('listaProveedoresEdit').value = data.ProveedorId;
-  document.getElementById('productoEdit').value = data.Descripcion;
+  document.getElementById('productoEdit').value = data.NombreProducto;
   document.getElementById('marcaEdit').value = data.Marca;
   document.getElementById('precioEdit').value = data.Precio;
   document.getElementById('ivaEdit').value = data.IVA;
-  document.getElementById('rubroEdit').value = data.Tipo;
   document.getElementById('calidadEdit').value = data.Calidad;
+  valorRubroEdit = data.Rubro;
   idEditable = data.ProductoId;
 }
 
@@ -122,11 +123,11 @@ function editarProducto() {
   var jsonData = {
     ProductoId: idEditable,
     ProveedorId: document.getElementById('listaProveedoresEdit').value,
-    Descripcion: document.getElementById('productoEdit').value,
+    NombreProducto: document.getElementById('productoEdit').value,
     Marca: document.getElementById('marcaEdit').value.toString(),
     Precio: document.getElementById('precioEdit').value,
     IVA: document.getElementById('ivaEdit').value.toString(),
-    Tipo: document.getElementById('rubroEdit').value,
+    Rubro: document.getElementById('rubroEdit').value,
     Calidad: document.getElementById('calidadEdit').value,
   };
 
@@ -158,7 +159,6 @@ function listarRubros(idProveedor) {
 
   req.done(function (res) {
     filtrarRubros(res.TipoRubro);
-    console.log(res.TipoRubro);
   });
 
   req.fail(function (err) {
@@ -183,20 +183,54 @@ function filtrarRubros(proveedor) {
     res.forEach(element => {
       var rubro = document.createElement('option');
       rubro.appendChild(document.createTextNode(element.Nombre));
-      rubro.value = element.RubroId;
+      rubro.value = element.Nombre;
       lista.appendChild(rubro);
     });
     limpiarRubro(listaEdit);
     res.forEach(element => {
       var rubro = document.createElement('option');
       rubro.appendChild(document.createTextNode(element.Nombre));
-      rubro.value = element.RubroId;
+      rubro.value = element.Nombre;
       listaEdit.appendChild(rubro);
     });
+    listaEdit.value = valorRubroEdit;
   });
 
   tabla.fail(function (err) {
     console.log(err)
+  });
+}
+
+function preguntaBorrar(idProducto, nombre) {
+  document.getElementById('modalDel').innerHTML = `Se está eliminando el producto: <b>${nombre}</b>`;
+  document.getElementById('idBorrar').value = idProducto;
+  $('#modalBorrar').modal('show');
+  setTimeout(function () {
+    document.getElementById('borrarBtn').removeAttribute('disabled');
+    document.getElementById('borrarBtn').innerHTML = 'ELIMINAR';
+  }, 4000);
+}
+
+function eliminarProveedor() {
+  var jsonData = {
+    id: document.getElementById('idBorrar').value,
+  };
+
+  var req = $.ajax({
+    url: 'http://leanim.switchit.com.ar/OperacionProductos/EliminarProducto',
+    type: "POST",
+    data: JSON.stringify(jsonData),
+    contentType: "application/json"
+  });
+
+  req.done(function () {
+    uploadTable();
+    document.getElementById('idBorrar').value = '';
+    document.getElementById('borrarBtn').setAttribute('disabled', 'disabled');
+  });
+
+  req.fail(function (err) {
+    console.log(err);
   });
 }
 
@@ -214,27 +248,32 @@ function uploadTable() {
     $('#tablaProductos').DataTable({
       data: res,
       columns: [{
-          "data": "Descripcion"
+          "data": "NombreProducto"
         },
         {
           "data": "Marca"
         },
         {
-          "data": "Tipo"
+          "data": "Rubro"
         },
         {
-          "data": "Calidad"
+          "data": "Precio",
+          render: function (data, type, row) {
+            return '$ ' + data;
+          }
         },
         {
-          "data": "Precio"
-        },
-        {
-          "data": "IVA"
+          "data": "IVA",
+          render: function (data, type, row) {
+            return data + '%';
+          }
         },
         {
           "data": "ProductoId",
-          render: function (data, type, row) {
-            return `<a class="btn btn-sm btn-warning" href="#" onclick="mostrarProducto(${data})">Modificar <i class="fa fa-edit" ></i></a>`;
+          "data": "NombreProducto",
+          "data": function (data, type, row) {
+            return `<a class="btn btn-sm btn-danger" href="#" onclick="preguntaBorrar(${data.ProductoId}, '${data.NombreProducto}')">Borrar <i class="far fa-trash-alt" ></i></a>
+            <a class="btn btn-sm btn-warning" href="#" onclick="mostrarProducto(${data.ProductoId})">Modificar <i class="fa fa-edit" ></i></a>`;
           }
         }
       ]

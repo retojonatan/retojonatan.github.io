@@ -17,6 +17,7 @@ function altaProveedor() {
     RazonSocial: document.getElementById('razonSocial').value,
     Cuit: document.getElementById('cuit').value.toString(),
     Direccion: document.getElementById('direccion').value,
+    Localidad: document.getElementById('localidad').value,
     Telefono: document.getElementById('tel').value.toString(),
     TipoRubro: document.getElementById('tipo').value,
     Contacto: document.getElementById('contacto').value,
@@ -66,6 +67,7 @@ function completarModal(data) {
   document.getElementById('razonSocialEdit').value = data.RazonSocial;
   document.getElementById('cuitEdit').value = data.Cuit;
   document.getElementById('direccionEdit').value = data.Direccion;
+  document.getElementById('localidadEdit').value = data.Localidad;
   document.getElementById('telEdit').value = data.Telefono;
   document.getElementById('tipoEdit').value = data.TipoRubro;
   document.getElementById('contactoEdit').value = data.Contacto;
@@ -81,6 +83,7 @@ function editarProveedor() {
     RazonSocial: document.getElementById('razonSocialEdit').value,
     Cuit: document.getElementById('cuitEdit').value.toString(),
     Direccion: document.getElementById('direccionEdit').value,
+    Localidad: document.getElementById('localidadEdit').value,
     Telefono: document.getElementById('telEdit').value.toString(),
     TipoRubro: document.getElementById('tipoEdit').value,
     Contacto: document.getElementById('contactoEdit').value,
@@ -97,6 +100,39 @@ function editarProveedor() {
 
   req.done(function () {
     uploadTable();
+  });
+
+  req.fail(function (err) {
+    console.log(err);
+  });
+}
+
+function preguntaBorrar(idProveedor, nombre) {
+  document.getElementById('modalDel').innerHTML = `Se está eliminando el proveedor: <b>${nombre}</b>`;
+  document.getElementById('idBorrar').value = idProveedor;
+  $('#modalBorrar').modal('show');
+  setTimeout(function () {
+    document.getElementById('borrarBtn').removeAttribute('disabled');
+    document.getElementById('borrarBtn').innerHTML = 'ELIMINAR';
+  }, 4000);
+}
+
+function eliminarProveedor() {
+  var jsonData = {
+    id: document.getElementById('idBorrar').value,
+  };
+
+  var req = $.ajax({
+    url: 'http://leanim.switchit.com.ar/OperacionProveedores/EliminarProveedor',
+    type: "POST",
+    data: JSON.stringify(jsonData),
+    contentType: "application/json"
+  });
+
+  req.done(function () {
+    uploadTable();
+    document.getElementById('idBorrar').value = '';
+    document.getElementById('borrarBtn').setAttribute('disabled', 'disabled');
   });
 
   req.fail(function (err) {
@@ -152,24 +188,24 @@ function uploadTable() {
           "data": "Nombre"
         },
         {
-          "data": "TipoRubro"
-        },
-        {
-          "data": "Contacto"
-        },
-        {
           "data": "RazonSocial"
         },
         {
-          "data": "Direccion"
+          "data": "Cuit"
         },
         {
           "data": "Telefono"
         },
         {
+          "data": "Localidad"
+        },
+        {
           "data": "ProveedorId",
-          render: function (data, type, row) {
-            return `<a class="btn btn-sm btn-warning" href="#" onclick="mostrarProveedor(${data})">Modificar <i class="fa fa-edit" ></i></a>`;
+          "data": "Nombre",
+          "data": function (data, type, row) {
+            return `
+            <a class="btn btn-sm btn-danger" href="#" onclick="preguntaBorrar(${data.ProveedorId}, '${data.Nombre}')">Borrar <i class="far fa-trash-alt" ></i></a>
+            <a class="btn btn-sm btn-warning" href="#" onclick="mostrarProveedor(${data.ProveedorId})">Modificar <i class="fa fa-edit" ></i></a>`;
           }
         }
       ]

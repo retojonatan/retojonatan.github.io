@@ -43,16 +43,16 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./" class="nav-link">Dashboard</a>
+          <a href="./" class="nav-link" hidden>Dashboard</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./Productos" class="nav-link">Productos</a>
+          <a href="./Productos" class="nav-link" hidden>Productos</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./Pagos" class="nav-link">Pagos</a>
+          <a href="./Pagos" class="nav-link" hidden>Pagos</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="./Remitos" class="nav-link">Remitos</a>
+          <a href="./Remitos" class="nav-link" hidden>Remitos</a>
         </li>
       </ul>
 
@@ -89,8 +89,8 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="./Index" class="nav-link">
+            <li class="nav-item" hidden>
+              <a href="./" class="nav-link">
                 <i class="fa fa-home nav-icon"></i>
                 <p>Dashboard</p>
               </a>
@@ -106,17 +106,12 @@
               <ul class="nav nav-treeview bg-navy pl-2">
                 <li class="nav-item">
                   <a href="./Clientes" class="nav-link">
-                    <i class="fa fa-search nav-icon"></i>
-                    <p>Búsqueda</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="./AltaClientes" class="nav-link">
                     <i class="far fa-check-circle nav-icon"></i>
                     <p>Registro</p>
                   </a>
                 </li>
-                <li class="nav-item">
+
+                <li class="nav-item" hidden>
                   <a href="./PanelClientes" class="nav-link">
                     <i class="far fa-user nav-icon"></i>
                     <p>Panel Cliente</p>
