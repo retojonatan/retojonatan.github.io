@@ -120,11 +120,11 @@ function calcularIva() {
 function calcularSubtotal() {
   for (let i = 0; i < count; i++) {
     if (i == 0) {
-      document.getElementById('subtotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseInt(document.getElementById('cantidad').value)).toFixed(2);
+      document.getElementById('subtotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseFloat(document.getElementById('cantidad').value)).toFixed(2);
     } else {
       var precioBruto = document.getElementById('precioBruto' + i);
       var cantidad = document.getElementById('cantidad' + i);
-      document.getElementById('subtotal' + i).value = parseFloat(parseFloat(precioBruto.value) * parseInt(cantidad.value)).toFixed(2);
+      document.getElementById('subtotal' + i).value = parseFloat(parseFloat(precioBruto.value) * parseFloat(cantidad.value)).toFixed(2);
     }
   }
   calcularIvaTotal();
@@ -135,7 +135,7 @@ function calcularIvaTotal() {
     if (i == 0) {
       document.getElementById('ivaTotal').value = parseFloat(parseFloat(document.getElementById('ivaPesos').value) * parseFloat(document.getElementById('cantidad').value)).toFixed(2);
     } else {
-      ivaProducto = parseFloat(parseFloat(document.getElementById('ivaPesos' + i).value) * parseInt(document.getElementById('cantidad' + i).value)).toFixed(2);
+      ivaProducto = parseFloat(parseFloat(document.getElementById('ivaPesos' + i).value) * parseFloat(document.getElementById('cantidad' + i).value)).toFixed(2);
       document.getElementById('ivaTotal').value = parseFloat(parseFloat(ivaProducto) + parseFloat(document.getElementById('ivaTotal').value)).toFixed(2);
     }
   }
@@ -144,9 +144,9 @@ function calcularIvaTotal() {
 
 function calcularMontoTotal() {
   for (let i = 0; i < count; i++) {
-    if (i == 0) document.getElementById('montoTotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseInt(document.getElementById('cantidad').value)).toFixed(2);
+    if (i == 0) document.getElementById('montoTotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseFloat(document.getElementById('cantidad').value)).toFixed(2);
     else {
-      totales = parseFloat(parseFloat(document.getElementById('precioBruto' + i).value) * parseInt(document.getElementById('cantidad' + i).value)).toFixed(2);
+      totales = parseFloat(parseFloat(document.getElementById('precioBruto' + i).value) * parseFloat(document.getElementById('cantidad' + i).value)).toFixed(2);
       document.getElementById('montoTotal').value = parseFloat(parseFloat(document.getElementById('montoTotal').value) + parseFloat(totales)).toFixed(2);
     }
   }
@@ -374,6 +374,7 @@ function altaCompra() {
     ProveedorId: document.getElementById('proveedorId').value,
     Cuit: document.getElementById('cuit').value,
     TipoComprobante: document.getElementById('comprobante').value,
+    Observaciones: document.getElementById('observaciones').value,
     ListaProductosComprados: jsonProductos
   }
 
@@ -461,7 +462,6 @@ function obtenerProducto(idProducto, precio) {
 // Funcion para presentar la lista de proveedores
 function listarProveedores() {
   var lista = document.getElementById("listaProveedores");
-  var listaEdit = document.getElementById("listaProveedoresEdit");
   var tabla = $.ajax({
     url: 'http://leanim.switchit.com.ar/OperacionProveedores/ObtenerProveedores',
     type: "GET",

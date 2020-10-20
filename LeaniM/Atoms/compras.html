@@ -285,7 +285,8 @@
                           <div class="form-group">
                             <label>Precio Unit.</label>
                             <div class="input-group">
-                              <input type="number" class="form-control text-right" min="0" id="precio" required>
+                              <input type="number" step=".01" class="form-control text-right" min="0" id="precio"
+                                required>
                               <div class="input-group-append">
                                 <span class="input-group-text">$</span>
                               </div>
@@ -308,8 +309,8 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Cantidad</label>
-                            <input type="number" class="form-control text-right" min="1" value="1" name="cantidad"
-                              id="cantidad" required>
+                            <input type="number" step=".01" class="form-control text-right" min="1" value="1"
+                              name="cantidad" id="cantidad" required>
                           </div>
                         </div>
                         <div class="col-sm-1">
@@ -328,8 +329,8 @@
                           <div class="form-group">
                             <label>IVA $ Unit.</label>
                             <div class="input-group">
-                              <input type="number" class="form-control text-right" value="0" min="0" id="ivaPesos"
-                                readonly>
+                              <input type="number" step=".01" class="form-control text-right" value="0" min="0"
+                                id="ivaPesos" readonly>
                               <div class="input-group-append">
                                 <span class="input-group-text">$</span>
                               </div>
@@ -341,8 +342,8 @@
                           <div class="form-group">
                             <label>Precio Unitario Bruto</label>
                             <div class="input-group">
-                              <input type="number" class="form-control text-right" value="0" min="0" id="precioBruto"
-                                readonly>
+                              <input type="number" step=".01" class="form-control text-right" value="0" min="0"
+                                id="precioBruto" readonly>
                               <div class="input-group-append">
                                 <span class="input-group-text">$</span>
                               </div>
@@ -353,8 +354,8 @@
                           <!-- text input -->
                           <div class="form-group">
                             <label>Subtotal</label>
-                            <input type="number" class="form-control text-right" placeholder="" value="0" min="0"
-                              id="subtotal" readonly>
+                            <input type="number" step=".01" class="form-control text-right" placeholder="" value="0"
+                              min="0" id="subtotal" readonly>
                           </div>
                         </div>
                       </div>
@@ -381,8 +382,8 @@
                         <label for="ivaTotal" class="col-sm-5 col-form-label">IVA Total:</label>
                         <div class="col-sm-7">
                           <div class="input-group">
-                            <input type="number" class="form-control text-right" id="ivaTotal" value="0" min="0"
-                              readonly required>
+                            <input type="number" step=".01" class="form-control text-right" id="ivaTotal" value="0"
+                              min="0" readonly required>
                             <div class="input-group-append">
                               <span class="input-group-text">$</span>
                             </div>
@@ -393,8 +394,8 @@
                         <label for="montoTotal" class="col-sm-5 col-form-label">Monto Total:</label>
                         <div class="col-sm-7">
                           <div class="input-group">
-                            <input type="number" class="form-control text-right" id="montoTotal" value="0" min="0"
-                              readonly required>
+                            <input type="number" step=".01" class="form-control text-right" id="montoTotal" value="0"
+                              min="0" readonly required>
                             <div class="input-group-append">
                               <span class="input-group-text">$</span>
                             </div>
