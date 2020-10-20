@@ -419,15 +419,11 @@ function preguntaBorrar(id, nombre, monto) {
 }
 
 function eliminarCompra() {
-  var jsonData = {
-    id: document.getElementById('idBorrar').value,
-  };
+  let id = document.getElementById('idBorrar').value;
 
   var req = $.ajax({
-    url: 'http://leanim.switchit.com.ar/OperacionCompras/EliminarCompra',
+    url: 'http://leanim.switchit.com.ar/OperacionCompras/EliminarCompra?id=' + id,
     type: "POST",
-    data: JSON.stringify(jsonData),
-    contentType: "application/json"
   });
 
   req.done(function () {
@@ -578,6 +574,7 @@ function uploadTable() {
   tabla.done(function (res) {
     $('#tablaCompras').DataTable().clear().destroy();
     $('#tablaCompras').DataTable({
+      pageLength: 25,
       data: res,
       columns: [{
           "data": "FechaFactura",

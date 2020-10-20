@@ -118,15 +118,11 @@ function preguntaBorrar(idProveedor, nombre) {
 }
 
 function eliminarProveedor() {
-  var jsonData = {
-    id: document.getElementById('idBorrar').value,
-  };
+  let id = document.getElementById('idBorrar').value;
 
   var req = $.ajax({
-    url: 'http://leanim.switchit.com.ar/OperacionProveedores/EliminarProveedor',
+    url: 'http://leanim.switchit.com.ar/OperacionProveedores/EliminarProveedor?id=' + id,
     type: "POST",
-    data: JSON.stringify(jsonData),
-    contentType: "application/json"
   });
 
   req.done(function () {
@@ -183,6 +179,7 @@ function uploadTable() {
   tabla.done(function (res) {
     $('#tablaProveedores').DataTable().clear().destroy();
     $('#tablaProveedores').DataTable({
+      pageLength: 25,
       data: res,
       columns: [{
           "data": "Nombre"

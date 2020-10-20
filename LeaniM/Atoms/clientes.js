@@ -112,15 +112,11 @@ function preguntaBorrar(idCliente, nombre) {
 }
 
 function eliminarCliente() {
-  var jsonData = {
-    id: document.getElementById('idBorrar').value,
-  };
+  let id = document.getElementById('idBorrar').value;
 
   var req = $.ajax({
-    url: 'http://leanim.switchit.com.ar/OperacionClientes/EliminarCliente',
+    url: 'http://leanim.switchit.com.ar/OperacionClientes/EliminarCliente?id=' + id,
     type: "POST",
-    data: JSON.stringify(jsonData),
-    contentType: "application/json"
   });
 
   req.done(function () {
@@ -146,6 +142,7 @@ function uploadTable() {
   tablaClientes.done(function (res) {
     $('#tablaClientes').DataTable().clear().destroy();
     $('#tablaClientes').DataTable({
+      pageLength: 25,
       data: res,
       columns: [{
           "data": "Nombre"

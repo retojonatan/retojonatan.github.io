@@ -211,16 +211,11 @@ function preguntaBorrar(idProducto, nombre) {
   }, 4000);
 }
 
-function eliminarProveedor() {
-  var jsonData = {
-    id: document.getElementById('idBorrar').value,
-  };
-
+function eliminarProducto() {
+  let id = document.getElementById('idBorrar').value;
   var req = $.ajax({
-    url: 'http://leanim.switchit.com.ar/OperacionProductos/EliminarProducto',
+    url: 'http://leanim.switchit.com.ar/OperacionProductos/EliminarProducto?id=' + id,
     type: "POST",
-    data: JSON.stringify(jsonData),
-    contentType: "application/json"
   });
 
   req.done(function () {
@@ -234,6 +229,7 @@ function eliminarProveedor() {
   });
 }
 
+
 function uploadTable() {
 
   var tablaProductos = $.ajax({
@@ -246,6 +242,7 @@ function uploadTable() {
   tablaProductos.done(function (res) {
     $('#tablaProductos').DataTable().clear().destroy();
     $('#tablaProductos').DataTable({
+      pageLength: 25,
       data: res,
       columns: [{
           "data": "NombreProducto"
