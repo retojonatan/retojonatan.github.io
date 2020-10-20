@@ -130,7 +130,7 @@ a:hover {
   margin: 0;
 }
 
-section {  
+section {
   position: relative;
   padding-right: 50px;
   padding-left: 50px;
@@ -331,6 +331,10 @@ section {
     padding-right: .35rem;
   }
 
+  #envios .btn-envios {
+    height: 63px;
+  }
+
   .sucursal img {
     filter: brightness(0.75);
   }
@@ -403,6 +407,11 @@ section {
     font-size: 40px !important;
   }
 
+  #envios .btn-envios {
+    height: 58px;
+    font-size: 1.5rem !important;
+  }
+
   #covid .row .px-4 {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -434,6 +443,10 @@ section {
 
   #consultanos .col-12 {
     text-align: center !important;
+  }
+
+  #contactanos .cartero {
+    display: none;
   }
 
   #footer {
@@ -498,7 +511,7 @@ section {
     display: none !important;
   }
 
-  .btn-envios {
+  #envios .btn-envios {
     height: 50px;
     font-size: 1.25rem !important;
   }
