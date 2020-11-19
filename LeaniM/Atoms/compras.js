@@ -382,6 +382,7 @@ function altaCompra() {
     ProveedorId: document.getElementById('proveedorId').value,
     Cuit: document.getElementById('cuit').value,
     TipoComprobante: document.getElementById('comprobante').value,
+    Observaciones: document.getElementById('observaciones').value,
     ListaProductosComprados: jsonProductos
   }
 
@@ -469,7 +470,6 @@ function obtenerProducto(idProducto, precio) {
 // Funcion para presentar la lista de proveedores
 function listarProveedores() {
   var lista = document.getElementById("listaProveedores");
-  var listaEdit = document.getElementById("listaProveedoresEdit");
   var tabla = $.ajax({
     url: 'http://leanim.switchit.com.ar/OperacionProveedores/ObtenerProveedores',
     type: "GET",
