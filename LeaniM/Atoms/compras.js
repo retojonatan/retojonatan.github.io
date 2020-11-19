@@ -120,11 +120,11 @@ function calcularIva() {
 function calcularSubtotal() {
   for (let i = 0; i < count; i++) {
     if (i == 0) {
-      document.getElementById('subtotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseInt(document.getElementById('cantidad').value)).toFixed(2);
+      document.getElementById('subtotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseFloat(document.getElementById('cantidad').value)).toFixed(2);
     } else {
       var precioBruto = document.getElementById('precioBruto' + i);
       var cantidad = document.getElementById('cantidad' + i);
-      document.getElementById('subtotal' + i).value = parseFloat(parseFloat(precioBruto.value) * parseInt(cantidad.value)).toFixed(2);
+      document.getElementById('subtotal' + i).value = parseFloat(parseFloat(precioBruto.value) * parseFloat(cantidad.value)).toFixed(2);
     }
   }
   calcularIvaTotal();
@@ -135,7 +135,7 @@ function calcularIvaTotal() {
     if (i == 0) {
       document.getElementById('ivaTotal').value = parseFloat(parseFloat(document.getElementById('ivaPesos').value) * parseFloat(document.getElementById('cantidad').value)).toFixed(2);
     } else {
-      ivaProducto = parseFloat(parseFloat(document.getElementById('ivaPesos' + i).value) * parseInt(document.getElementById('cantidad' + i).value)).toFixed(2);
+      ivaProducto = parseFloat(parseFloat(document.getElementById('ivaPesos' + i).value) * parseFloat(document.getElementById('cantidad' + i).value)).toFixed(2);
       document.getElementById('ivaTotal').value = parseFloat(parseFloat(ivaProducto) + parseFloat(document.getElementById('ivaTotal').value)).toFixed(2);
     }
   }
@@ -144,9 +144,9 @@ function calcularIvaTotal() {
 
 function calcularMontoTotal() {
   for (let i = 0; i < count; i++) {
-    if (i == 0) document.getElementById('montoTotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseInt(document.getElementById('cantidad').value)).toFixed(2);
+    if (i == 0) document.getElementById('montoTotal').value = parseFloat(parseFloat(document.getElementById('precioBruto').value) * parseFloat(document.getElementById('cantidad').value)).toFixed(2);
     else {
-      totales = parseFloat(parseFloat(document.getElementById('precioBruto' + i).value) * parseInt(document.getElementById('cantidad' + i).value)).toFixed(2);
+      totales = parseFloat(parseFloat(document.getElementById('precioBruto' + i).value) * parseFloat(document.getElementById('cantidad' + i).value)).toFixed(2);
       document.getElementById('montoTotal').value = parseFloat(parseFloat(document.getElementById('montoTotal').value) + parseFloat(totales)).toFixed(2);
     }
   }
@@ -173,6 +173,14 @@ comprobante.addEventListener('change', function (e) {
       opcion3.appendChild(document.createTextNode('27%'));
       opcion3.value = 27;
       iva.appendChild(opcion3);
+      var opcion4 = document.createElement('option');
+      opcion4.appendChild(document.createTextNode('30%'));
+      opcion4.value = 30;
+      iva.appendChild(opcion4);
+      var opcion5 = document.createElement('option');
+      opcion5.appendChild(document.createTextNode('0%'));
+      opcion5.value = 0;
+      iva.appendChild(opcion5);
       calcularIva();
       break;
       // case 'Fc B':

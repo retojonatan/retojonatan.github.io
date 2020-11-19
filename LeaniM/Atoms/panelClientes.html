@@ -181,7 +181,7 @@
       <section class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="info-box">
                 <span class="info-box-icon"><i class="icon ion-ios-contact"></i></span>
                 <div class="info-box-content">
@@ -215,7 +215,130 @@
               </div>
               <!-- /.info-box -->
             </div>
+            <div class="col-md-2">
+              <div class="info-box bg-success" id="pago">
+                <span class="info-box-icon"><i class="ion-cash"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text">
+                    <a href="#" class="btn btn-sm btn-outline-light">SALDAR DEUDA</a>
+                  </span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
           </div>
+
+          <div class="card card-info">
+            <!-- <div class="card card-success collapsed-card"> -->
+            <div class="card-header">
+              <h3 class="card-title">Crear Venta</h3>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="card-refresh" data-source="clientes.html"
+                  data-source-selector="#card-refresh-content" data-load-on-init="false"><i
+                    class="fas fa-sync-alt"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                    class="fas fa-minus"></i></button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <form role="form" id="formMercaderia">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Mercadería</label>
+                      <select type="text" class="form-control" id="listaMercaderia" required>
+                        <option disabled selected hidden></option>
+                        <option value="Lechón">Lechón</option>
+                        <option value="Capón">Capón</option>
+                        <option value="Ternero">Ternero</option>
+                        <option value="Oveja">Oveja</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Tipo de mercadería</label>
+                      <select type="text" class="form-control" id="tipoPeso" required>
+                        <option disabled selected hidden></option>
+                        <option value="A">A - hasta 20kg</option>
+                        <option value="B">B - entre 20 a 30kg</option>
+                        <option value="C">C - entre 30 a 40kg</option>
+                        <option value="D">D - entre 40 a 50kg</option>
+                        <option value="E">E - entre 50 y 70kg</option>
+                        <option value="F">F - entre 70 a 100kg</option>
+                        <option value="G">G - más de 100kg</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-1">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Peso kg</label>
+                      <div class="input-group">
+                        <input type="number" step="0.001" class="form-control" min="1" id="peso">
+                        <div class="input-group-append">
+                          <span class="input-group-text">Kg</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Precio por Kilo</label>
+                      <div class="input-group">
+                        <input type="number" class="form-control" id="precioKilo" min="1" readonly>
+                        <div class="input-group-append">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-1">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Cantidad</label>
+                      <input type="number" step="0.1" class="form-control" id="cantidad" value="1" min="1">
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Subtotal</label>
+                      <div class="input-group">
+                        <input class="form-control" step="0.01" id="subtotal" min="1" readonly>
+                        <div class="input-group-append">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Precio total</label>
+                      <div class="input-group">
+                        <input type="number" step="0.01" class="form-control" id="precioTotal" min="1" required>
+                        <div class="input-group-append">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="float-right">
+                  <button type="submit" class="btn font-weight-bold bg-info mr-3">INGRESAR VENTA</button>
+                  <button type="reset" class="btn btn-default">Cancelar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /.card-body -->
           <div class="row mt-3">
             <div class="col-lg-3 col-md-6 col-12">
               <div class="small-box">
@@ -226,37 +349,6 @@
                   </div>
                   <div class="icon"><i class="ion ion-bag"></i></div>
                 </a>
-                <div class="box-body no-padding">
-                  <table class="table table-striped bg-white">
-                    <tbody>
-                      <tr>
-                        <th>Últimas Ventas</th>
-                        <th>Fecha</th>
-                        <th style="width: 30px;">Importe</th>
-                      </tr>
-                      <tr>
-                        <td>Descripción Venta</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Venta 2</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Venta 3</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Venta 4</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12">
@@ -268,37 +360,6 @@
                   </div>
                   <div class="icon"><i class="ion ion-cash"></i></div>
                 </a>
-                <div class="box-body no-padding">
-                  <table class="table table-striped bg-white">
-                    <tbody>
-                      <tr>
-                        <th>Últimos Pagos</th>
-                        <th>Fecha</th>
-                        <th style="width: 30px;">Importe</th>
-                      </tr>
-                      <tr>
-                        <td>Descripción Pago</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Pago 2</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Pago 3</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Pago 4</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-12">
@@ -309,48 +370,6 @@
                     <p>Genere remitos de compra</p>
                   </div>
                   <div class="icon"><i class="ion ion-clipboard"></i></div>
-                </a>
-                <div class="box-body no-padding">
-                  <table class="table table-striped bg-white">
-                    <tbody>
-                      <tr>
-                        <th>Últimos Remitos</th>
-                        <th>Fecha</th>
-                        <th style="width: 30px;">Importe</th>
-                      </tr>
-                      <tr>
-                        <td>Descripción Remito</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Remito 2</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Remito 3</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                      <tr>
-                        <td>Descripción Remito 4</td>
-                        <td>04/08/20</td>
-                        <td>14200 <span>$</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <div class="small-box">
-                <a href="#" class="d-block p-2 bg-warning" data-toggle="modal" data-target="#modalDatos">
-                  <div class="inner">
-                    <h3>Datos</h3>
-                    <p>Modifique datos del cliente</p>
-                  </div>
-                  <div class="icon"><i class="ion ion-edit"></i></div>
                 </a>
               </div>
             </div>
@@ -546,10 +565,6 @@
   <script src="../Atoms/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../Atoms/dist/js/adminlte.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="../Atoms/dist/js/pages/dashboard.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="../Atoms/dist/js/demo.js"></script>
   <!-- Custom Scripts -->
   <script>
     // cambio color cta cte
@@ -584,6 +599,7 @@
       montoTotal.innerHTML = totalRemito;
     }
   </script>
+  <script src="../Atoms/panelClientes.js"></script>
   <script src="../Atoms/session.js"></script>
 </body>
 

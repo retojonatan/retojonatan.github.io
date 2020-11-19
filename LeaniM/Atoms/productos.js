@@ -28,7 +28,7 @@ function altaProducto() {
     NombreProducto: document.getElementById('producto').value,
     Marca: document.getElementById('marca').value,
     Rubro: document.getElementById('rubro').value,
-    Calidad: document.getElementById('calidad').value,
+    // Calidad: document.getElementById('calidad').value,
     Precio: document.getElementById('precio').value.toString(),
     IVA: parseFloat(document.getElementById('iva').value),
   };
@@ -107,7 +107,7 @@ function completarModal(data) {
   document.getElementById('marcaEdit').value = data.Marca;
   document.getElementById('precioEdit').value = data.Precio;
   document.getElementById('ivaEdit').value = data.IVA;
-  document.getElementById('calidadEdit').value = data.Calidad;
+  // document.getElementById('calidadEdit').value = data.Calidad;
   valorRubroEdit = data.Rubro;
   idEditable = data.ProductoId;
 }
@@ -128,7 +128,7 @@ function editarProducto() {
     Precio: document.getElementById('precioEdit').value,
     IVA: document.getElementById('ivaEdit').value.toString(),
     Rubro: document.getElementById('rubroEdit').value,
-    Calidad: document.getElementById('calidadEdit').value,
+    // Calidad: document.getElementById('calidadEdit').value,
   };
 
   var req = $.ajax({

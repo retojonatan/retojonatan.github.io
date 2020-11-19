@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LeaniM | Proveedores</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../Atoms/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="../Atoms/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../Atoms/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../Atoms/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../Atoms/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../Atoms/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../Atoms/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../Atoms/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="../Atoms/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- FAVICON -->
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAZGRkAKas+wDb7P8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIiIiIiIAACIiIiIiIiIAIiMzMzMyIgIiMzMzMzMiIiIzMzMzMyIiIjMiMyIzIiIiMyIzIjMiIiIzIjMiMyIiIjMzMzMzIiIiMzMzMzMiIiIjMzMzMiIiIiIRIhEiIiIiIhEiESIiICIiESIRIiIAIiIiIiIiIgAAIiIiIiIADgBwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIABAADgBwAA"
+    rel="icon" type="image/x-icon" />
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed d-none">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./" class="nav-link" hidden>Dashboard</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./Productos" class="nav-link" hidden>Productos</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./Pagos" class="nav-link" hidden>Pagos</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="./Remitos" class="nav-link" hidden>Remitos</a>
+        </li>
+      </ul>
+
+      <div class="ml-auto">
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Buscar Clientes"
+              aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        </ul>
+      </div>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="./" class="brand-link bg-gradient-dark">
+        <i class="fas fa-piggy-bank text-pink px-2" style="opacity: .8"></i>
+        <span class="brand-text font-weight-light">LeaniM</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item" hidden>
+              <a href="./" class="nav-link">
+                <i class="fa fa-home nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Clientes
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview bg-navy pl-2">
+                <li class="nav-item">
+                  <a href="./Clientes" class="nav-link">
+                    <i class="far fa-check-circle nav-icon"></i>
+                    <p>Registro</p>
+                  </a>
+                </li>
+
+                <li class="nav-item" hidden>
+                  <a href="./PanelClientes" class="nav-link">
+                    <i class="far fa-user nav-icon"></i>
+                    <p>Panel Cliente</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="./Proveedores" class="nav-link active">
+                <i class="fa fa-industry nav-icon"></i>
+                <p>Proveedores</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./Productos" class="nav-link">
+                <i class="fas fa-cash-register nav-icon"></i>
+                <p>Productos</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./Compras" class="nav-link">
+                <i class="fa fa-shopping-cart nav-icon"></i>
+                <p>Compras</p>
+              </a>
+            </li>
+            <li class="nav-item" hidden>
+              <a href="./Remitos" class="nav-link">
+                <i class="fas fa-columns nav-icon"></i>
+                <p>Remitos</p>
+              </a>
+            </li>
+            <li class="nav-item" hidden>
+              <a href="./Pagos" class="nav-link">
+                <i class="fas fa-wallet nav-icon"></i>
+                <p>Pagos</p>
+              </a>
+            </li>
+            <li class="nav-header">USUARIOS LEANIM</li>
+            <li class="nav-item">
+              <a href="./Usuarios" class="nav-link">
+                <i class="nav-icon fas fa-user-shield"></i>
+                <p>ABM</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Proveedores</h1>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <!-- general form elements -->
+              <div class="card card-success">
+                <!-- <div class="card card-success collapsed-card"> -->
+                <div class="card-header">
+                  <h3 class="card-title">Crear Proveedor</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
+                      data-source="clientes.html" data-source-selector="#card-refresh-content"
+                      data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                        class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <form role="form" id="formProveedor">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Nombre del Proveedor</label>
+                          <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..."
+                            id="proveedor" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-3">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>Razón Social</label>
+                          <input type="text" class="form-control" placeholder="Ingrese la razón social ..."
+                            id="razonSocial" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- select -->
+                        <div class="form-group">
+                          <label>Tipo</label>
+                          <select class="form-control" id="tipo" required>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- text input -->
+                        <div class="form-group">
+                          <label>N° CUIT <small>(sin guiones)</small></label>
+                          <input type="tel" class="form-control" placeholder="N° CUIT" id="cuit" minlength="11"
+                            min="9999999999" maxlength="11" pattern="\d*" required>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <!-- select -->
+                        <div class="form-group">
+                          <label>Condicion Fiscal</label>
+                          <select class="form-control" id="condicionFiscal" required>
+                            <option value="Responsable Inscripto">Responsable Inscripto</option>
+                            <option value="Consumidor Final">Consumidor Final</option>
+                            <option value="IVA Exento">IVA Exento</option>
+                            <option value="Otro">Otro</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="listaProductos">
+                      <div class="row" id="columnaProducto">
+                        <div class="col-sm-4">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control" placeholder="Ingrese la dirección del proveedor"
+                              id="direccion" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Localidad</label>
+                            <input type="text" class="form-control" placeholder="Ingrese la localidad del proveedor"
+                              id="localidad" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <!-- tel input -->
+                          <div class="form-group">
+                            <label>Teléfono <small>(sin guiones)</small> </label>
+                            <input type="tel" class="form-control" placeholder="N° de teléfono" id="tel" minlength="8"
+                              maxlength="14" pattern="\d*">
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <!-- text input -->
+                          <div class="form-group">
+                            <label>Contacto</label>
+                            <input type="text" class="form-control" placeholder="Ingrese el contacto" id="contacto">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="float-right">
+                      <button type="submit" class="btn font-weight-bold btn-success mr-3">INGRESAR
+                        PROVEEDOR</button>
+                      <button type="reset" class="btn btn-default">Cancelar</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-12 -->
+          </div>
+
+          <!-- row -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Lista de Proveedores</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="card-refresh"
+                      data-source="proveedores.html" data-source-selector="#card-refresh-content"
+                      data-load-on-init="false"><i class="fas fa-sync-alt"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                        class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive">
+                  <table class="table table-head-fixed text-nowrap" id="tablaProveedores">
+                    <thead>
+                      <tr>
+                        <th>Nombre del Proveedor</th>
+                        <th>Razón Social</th>
+                        <th>CUIT</th>
+                        <th style="max-width: 100px">Teléfono</th>
+                        <th>Localidad</th>
+                        <th style="max-width: 60px">Modificar</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Nombre del Proveedor</th>
+                        <th>Razón Social</th>
+                        <th>CUIT</th>
+                        <th style="max-width: 100px">Teléfono</th>
+                        <th>Localidad</th>
+                        <th style="max-width: 60px">Modificar</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- Modal Edit -->
+  <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="modal">Modificar Proveedor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role="form" id="formEdit">
+            <input type="text" id="proveedorIdEdit" hidden>
+            <div class="row">
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Nombre del Proveedor</label>
+                  <input type="text" class="form-control" placeholder="Ingrese nombre del proveedor ..."
+                    id="proveedorEdit" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Razón Social</label>
+                  <input type="text" class="form-control" placeholder="Ingrese la razón social ..." id="razonSocialEdit"
+                    required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- select -->
+                <div class="form-group">
+                  <label>Tipo</label>
+                  <select class="form-control" id="tipoEdit" required>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>N° CUIT <small>(sin guiones)</small></label>
+                  <input type="tel" class="form-control" placeholder="N° CUIT" id="cuitEdit" minlength="11"
+                    min="9999999999" maxlength="11" pattern="\d*" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- select -->
+                <div class="form-group">
+                  <label>Condicion Fiscal</label>
+                  <select class="form-control" id="condicionFiscalEdit" required>
+                    <option value="Responsable Inscripto">Responsable Inscripto</option>
+                    <option value="Consumidor Final">Consumidor Final</option>
+                    <option value="IVA Exento">IVA Exento</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Dirección</label>
+                  <input type="text" class="form-control" placeholder="Ingrese la dirección del proveedor"
+                    id="direccionEdit" required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Localidad</label>
+                  <input type="text" class="form-control" placeholder="Ingrese la localidad" id="localidadEdit"
+                    required>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- tel input -->
+                <div class="form-group">
+                  <label>Teléfono <small>(sin guiones)</small></label>
+                  <input type="tel" class="form-control" placeholder="N° de teléfono" id="telEdit" minlength="8"
+                    maxlength="14" pattern="\d*">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Contacto</label>
+                  <input type="text" class="form-control" placeholder="Ingrese el contacto" id="contactoEdit">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn font-weight-bold btn-warning mr-3" onclick="editarProveedor()"
+            data-dismiss="modal">GUARDAR
+            DATOS</button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="modalDel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-danger">
+          <h5 class="modal-title" id="modalDel"></h5>
+          <input type="text" hidden id="idBorrar">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Puede que este proveedor tenga productos asociados.</p>
+          <p>Se recomienda primero eliminar los productos asociados y luego el proveedor.</p>
+          <p>Esta seguro que quiere eliminar el proveedor?</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn font-weight-bold btn-danger mr-3" type="button" disabled id="borrarBtn"
+            data-dismiss="modal" onclick="eliminarProveedor()">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="sr-only">ELIMINAR</span>
+          </button>
+          <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="../Atoms/plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="../Atoms/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="../Atoms/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+  <script src="../Atoms/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="../Atoms/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../Atoms/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../Atoms/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="../Atoms/plugins/moment/moment.min.js"></script>
+  <script src="../Atoms/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="../Atoms/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="../Atoms/plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="../Atoms/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../Atoms/dist/js/adminlte.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../Atoms/dist/js/demo.js"></script>
+  <script src="../Atoms/proveedores2.js"></script>
+  <script src="../Atoms/session.js"></script>
+  <!-- firebase -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+  <!-- firebase auth -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+  <script defer src="./fbconfig.js"></script>
+</body>
+
+</html>
